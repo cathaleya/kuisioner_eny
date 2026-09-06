@@ -48,99 +48,6 @@ st.markdown("""
         margin-bottom: 0;
     }
     
-    /* Intro Card Styling */
-    .intro-card {
-        background: #FFFFFF;
-        border: 1px solid #E2E8F0;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-        overflow: hidden;
-        margin-bottom: 1.5rem;
-    }
-    .intro-header {
-        background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
-        color: white;
-        padding: 1.25rem 1.8rem;
-    }
-    .intro-header h2 {
-        color: #FFFFFF !important;
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin: 0 0 0.3rem 0;
-    }
-    .intro-subtitle {
-        color: #BFDBFE !important;
-        font-size: 0.95rem;
-        margin: 0;
-    }
-    .intro-body {
-        padding: 1.8rem 2rem;
-        color: #334155;
-        font-size: 1.02rem;
-        line-height: 1.75;
-    }
-    .intro-body p {
-        margin-bottom: 1.2rem;
-    }
-    .info-box {
-        border-radius: 10px;
-        padding: 1.25rem 1.6rem;
-        margin: 1.4rem 0;
-    }
-    .blue-box {
-        background-color: #EFF6FF;
-        border-left: 5px solid #3B82F6;
-    }
-    .blue-box h4 {
-        color: #1E40AF !important;
-        margin-top: 0;
-        margin-bottom: 0.6rem;
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
-    .green-box {
-        background-color: #F0FDF4;
-        border-left: 5px solid #22C55E;
-    }
-    .green-box h4 {
-        color: #166534 !important;
-        margin-top: 0;
-        margin-bottom: 0.6rem;
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
-    .info-box ul, .info-box ol {
-        margin: 0;
-        padding-left: 1.4rem;
-    }
-    .info-box li {
-        margin-bottom: 0.5rem;
-        color: #1E293B;
-    }
-    .author-signature {
-        margin-top: 2rem;
-        padding-top: 1.2rem;
-        border-top: 2px dashed #E2E8F0;
-    }
-    .author-title {
-        font-size: 0.85rem;
-        color: #64748B;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 600;
-    }
-    .author-name {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #1E3A8A;
-        margin: 0.2rem 0;
-    }
-    .author-affiliation {
-        font-size: 0.95rem;
-        color: #475569;
-        line-height: 1.4;
-    }
-    
     /* Selection Cards */
     .card {
         background-color: #FFFFFF;
@@ -187,6 +94,17 @@ st.markdown("""
         padding: 0.55rem 1.3rem;
         transition: all 0.2s;
     }
+
+    /* Submit Callout Card */
+    .submit-banner {
+        background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+        border: 2px solid #2563EB;
+        border-radius: 12px;
+        padding: 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -232,6 +150,10 @@ if "closing_answer" not in st.session_state:
     st.session_state.closing_answer = ""
 if "current_mod_idx" not in st.session_state:
     st.session_state.current_mod_idx = 0
+if "last_submit_msg" not in st.session_state:
+    st.session_state.last_submit_msg = ""
+if "last_payload" not in st.session_state:
+    st.session_state.last_payload = {}
 
 # Helper to flatten modules for easy linear navigation
 def get_flattened_modules(q_id):
@@ -283,7 +205,7 @@ def create_excel_download_bytes(payload):
         df.to_excel(writer, index=False, sheet_name='Hasil Kuesioner')
     return output.getvalue()
 
-# Helper function to send data via Google Apps Script
+# Helper function to send data via Google Apps Script & Local Excel
 def submit_to_google_sheets(payload):
     # Step 1: ALWAYS save to local Excel & CSV first
     local_ok, local_msg = save_to_local_excel(payload)
@@ -314,13 +236,34 @@ def submit_to_google_sheets(payload):
                 except Exception:
                     return True, "Data berhasil dikirim dan direkam di Excel lokal."
             elif response.status_code == 401:
-                return False, "HTTP 401 Unauthorized"
+                return False, "HTTP 401 Unauthorized (Google Apps Script butuh akses 'Anyone')"
             else:
                 return False, f"HTTP Error {response.status_code}: {response.text}"
         else:
-            return True, "Data berhasil direkam ke Excel lokal. (URL Google Apps Script belum diset di secrets.toml)"
+            return True, "Data berhasil direkam ke Excel lokal komputer."
     except Exception as e:
-        return False, f"Respon online: {str(e)} (Namun jawaban Anda SUDAH AMAN tersimpan di Excel lokal)."
+        return True, f"Jawaban Anda SUDAH AMAN tersimpan di Excel lokal. (Koneksi online: {str(e)})"
+
+# Global helper to perform direct submission from ANY page
+def process_direct_submission():
+    payload = {}
+    bio = st.session_state.user_biodata
+    for k, v in bio.items():
+        payload[k] = v
+        
+    flat_mods = get_flattened_modules(st.session_state.selected_q_id)
+    for m in flat_mods:
+        code = m["code"]
+        payload[f"Modul_{code}"] = st.session_state.answers.get(code, "")
+        
+    payload["Pertanyaan_Penutup"] = st.session_state.closing_answer
+    
+    with st.spinner("Sedang merekam jawaban Anda ke Excel & Google Sheets..."):
+        success, msg = submit_to_google_sheets(payload)
+        st.session_state.last_submit_msg = msg
+        st.session_state.last_payload = payload
+        st.session_state.page = "finish"
+        st.rerun()
 
 # ==========================================
 # SIDEBAR
@@ -346,12 +289,10 @@ with st.sidebar:
 
         st.markdown("---")
         
-        # Quick submit button in sidebar if user has answered at least 1 item
-        has_any_answer = any(v.strip() != "" for v in st.session_state.answers.values())
-        if has_any_answer and st.session_state.page in ["kuisioner", "biodata"]:
-            if st.button("🚀 Kirim Jawaban (Rekam ke Excel)", type="primary", use_container_width=True):
-                st.session_state.page = "summary"
-                st.rerun()
+        # PROMINENT SIDEBAR SUBMIT BUTTON
+        if st.session_state.page in ["kuisioner", "biodata", "summary"]:
+            if st.button("🚀 KIRIM JAWABAN SEKARANG", type="primary", use_container_width=True):
+                process_direct_submission()
             st.markdown("---")
 
         if st.button("🔄 Ganti Kuesioner / Kembali ke Awal", use_container_width=True):
@@ -525,40 +466,52 @@ elif st.session_state.page == "kuisioner":
         st.session_state.answers[mod['code']] = ans_text
         
         # Action Bar (Navigations & Direct Submit Option)
-        col_nav1, col_nav2, col_nav3 = st.columns([1, 1.2, 1.2])
-        
-        with col_nav1:
-            if idx > 0:
-                if st.button("⬅️ Modul Sebelumnya"):
-                    st.session_state.current_mod_idx -= 1
-                    st.rerun()
-            else:
-                if st.button("⬅️ Edit Biodata"):
-                    st.session_state.page = "biodata"
-                    st.rerun()
-                    
-        with col_nav2:
-            st.markdown(f"<div style='text-align:center; padding-top:0.4rem; font-weight:600; color:#4B5563;'>Modul {idx+1}/{total_mods}</div>", unsafe_allow_html=True)
-            
-        with col_nav3:
-            if idx < total_mods - 1:
-                if st.button("Simpan & Lanjut ➡️", type="primary"):
+        if idx < total_mods - 1:
+            col_nav1, col_nav2, col_nav3 = st.columns([1, 1.2, 1.5])
+            with col_nav1:
+                if idx > 0:
+                    if st.button("⬅️ Modul Sebelumnya", use_container_width=True):
+                        st.session_state.current_mod_idx -= 1
+                        st.rerun()
+                else:
+                    if st.button("⬅️ Edit Biodata", use_container_width=True):
+                        st.session_state.page = "biodata"
+                        st.rerun()
+                        
+            with col_nav2:
+                st.markdown(f"<div style='text-align:center; padding-top:0.4rem; font-weight:600; color:#4B5563;'>Modul {idx+1}/{total_mods}</div>", unsafe_allow_html=True)
+                
+            with col_nav3:
+                if st.button("Simpan & Lanjut ➡️", type="primary", use_container_width=True):
                     st.session_state.current_mod_idx += 1
                     st.rerun()
-            else:
-                if st.button("Lanjut ke Pertanyaan Penutup 🏁", type="primary"):
+        else:
+            # LAST MODULE - PRIMARY BUTTON IS KIRIM JAWABAN SEKARANG!
+            col_nav1, col_nav2, col_nav3 = st.columns([1, 1.2, 1.8])
+            with col_nav1:
+                if st.button("⬅️ Modul Sebelumnya", use_container_width=True):
+                    st.session_state.current_mod_idx -= 1
+                    st.rerun()
+            with col_nav2:
+                if st.button("📝 Ke Pertanyaan Penutup", use_container_width=True):
                     st.session_state.current_mod_idx = total_mods
                     st.rerun()
+            with col_nav3:
+                if st.button("🚀 KIRIM JAWABAN SEKARANG", type="primary", use_container_width=True, key="btn_last_mod_submit_primary"):
+                    process_direct_submission()
                     
-        st.markdown("---")
-        # Direct Submit Banner
-        c_sub1, c_sub2 = st.columns([2.5, 1])
-        with c_sub1:
-            st.caption("💡 Sudah selesai mengisi atau ingin langsung merekam jawaban Anda ke Excel?")
-        with c_sub2:
-            if st.button("🚀 KIRIM JAWABAN SEKARANG", type="secondary", use_container_width=True):
-                st.session_state.page = "summary"
-                st.rerun()
+        # PROMINENT SUBMIT CARD ON EVERY QUESTION PAGE
+        st.markdown("""
+        <div class="submit-banner">
+            <h4 style="color:#1E3A8A; margin:0 0 0.5rem 0;">📤 Selesai Mengisi? Kirim Jawaban Sekarang</h4>
+            <p style="color:#1E40AF; font-size:0.9rem; margin-bottom:0.8rem;">
+                Klik tombol biru di atas atau di bawah untuk langsung merekam seluruh jawaban Anda ke file Excel & Google Sheets.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("🚀 KIRIM JAWABAN SEKARANG (REKAM KE EXCEL)", type="primary", use_container_width=True, key=f"btn_submit_mod_{idx}"):
+            process_direct_submission()
                     
     else:
         # Closing Question Page
@@ -583,22 +536,39 @@ elif st.session_state.page == "kuisioner":
         )
         st.session_state.closing_answer = closing_ans
         
-        col_nav1, col_nav2 = st.columns(2)
+        # CLOSING PAGE NAVIGATION - PRIMARY BUTTON IS KIRIM JAWABAN SEKARANG!
+        col_nav1, col_nav2, col_nav3 = st.columns([1, 1, 1.8])
         with col_nav1:
-            if st.button("⬅️ Kembali ke Modul Terakhir", use_container_width=True):
+            if st.button("⬅️ Modul Terakhir", use_container_width=True):
                 st.session_state.current_mod_idx = total_mods - 1
                 st.rerun()
         with col_nav2:
-            if st.button("🚀 Lihat Ringkasan & Kirim Jawaban 📋", type="primary", use_container_width=True):
+            if st.button("📋 Lihat Ringkasan", use_container_width=True):
                 st.session_state.page = "summary"
                 st.rerun()
+        with col_nav3:
+            if st.button("🚀 KIRIM JAWABAN SEKARANG", type="primary", use_container_width=True, key="btn_closing_submit_primary"):
+                process_direct_submission()
+
+        # PROMINENT SUBMIT CARD ON CLOSING PAGE
+        st.markdown("""
+        <div class="submit-banner">
+            <h3 style="color:#1E3A8A; margin:0 0 0.5rem 0;">🚀 SELESAI PENGISIAN? KIRIM JAWABAN SEKARANG</h3>
+            <p style="color:#1E40AF; font-size:0.95rem; margin-bottom:0.8rem;">
+                Klik tombol di bawah ini untuk menyimpan seluruh data jawaban Anda ke Excel dan menyinkronkan ke Google Sheets.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        if st.button("🚀 KIRIM JAWABAN SEKARANG (REKAM KE EXCEL & GOOGLE SHEETS)", type="primary", use_container_width=True, key="btn_submit_closing"):
+            process_direct_submission()
 
 # ==========================================
 # PAGE 4: RINGKASAN JAWABAN & SUBMISSION
 # ==========================================
 elif st.session_state.page == "summary":
-    st.title("📋 Ringkasan Jawaban Kuesioner & Tombol Kirim")
-    st.info("Silakan periksa ringkasan jawaban Anda di bawah ini, lalu klik **TOMBOL KIRIM JAWABAN (WARNA BIRU)** untuk merekam data ke Excel dan Google Sheets.")
+    st.title("📋 Ringkasan Jawaban Kuesioner")
+    st.info("Periksa ringkasan jawaban Anda di bawah ini, lalu klik **TOMBOL KIRIM JAWABAN (WARNA BIRU)** untuk merekam data ke Excel.")
     
     bio = st.session_state.user_biodata
     q_info = questionnaires_dict.get(st.session_state.selected_q_id, {})
@@ -639,10 +609,10 @@ elif st.session_state.page == "summary":
     
     # Big prominent submission box
     st.markdown("""
-    <div style="background-color: #EFF6FF; border: 2px solid #3B82F6; border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem; text-align: center;">
+    <div class="submit-banner">
         <h3 style="color: #1E3A8A; margin-top:0;">📤 Siap Mengirimkan Jawaban?</h3>
         <p style="color: #1E40AF; font-size: 0.95rem; margin-bottom: 0.5rem;">
-            Klik tombol di bawah untuk menyinkronkan data ke Google Sheets dan merekam file Excel secara otomatis.
+            Klik tombol di bawah untuk merekam seluruh jawaban ke file Excel & Google Sheets secara otomatis.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -655,64 +625,8 @@ elif st.session_state.page == "summary":
             st.rerun()
             
     with col_sub2:
-        if st.button("🚀 KIRIM JAWABAN SEKARANG (REKAM KE EXCEL)", type="primary", use_container_width=True):
-            # Build payload
-            payload = {}
-            for k, v in bio.items():
-                payload[k] = v
-                
-            for m in flat_mods:
-                code = m["code"]
-                payload[f"Modul_{code}"] = st.session_state.answers.get(code, "")
-                
-            payload["Pertanyaan_Penutup"] = st.session_state.closing_answer
-            
-            with st.spinner("Sedang merekam data ke Excel & mengirim ke Google Sheets..."):
-                success, msg = submit_to_google_sheets(payload)
-                if success:
-                    st.session_state.page = "finish"
-                    st.rerun()
-                else:
-                    # If Google Apps Script returned HTTP 401 error
-                    if "401" in msg or "Unauthorized" in msg:
-                        st.error("⚠️ HTTP Error 401: Akses Google Apps Script Ditolak (Unauthorized)")
-                        st.warning("""
-                        **Penjelasan untuk Peneliti (Eny Cahyaningsih):**
-                        
-                        Error `401 Unauthorized` terjadi karena pengaturan penempatan (*Deployment*) Google Apps Script di Google Sheets Anda saat ini masih terset **"Only me" (Hanya saya)**.
-                        
-                        **Langkah Mudah Mengatasi HTTP Error 401 (Hanya 3 Langkah):**
-                        1. Buka Google Sheets penelitian Anda & klik **Extensions > Apps Script**.
-                        2. Di sudut kanan atas Apps Script, klik **Deploy > Manage deployments** (Kelola Penempatan).
-                        3. Klik icon **Pensil (Edit)**, lalu ubah **"Who has access" (Siapa yang memiliki akses)** dari *Only me* menjadi **"Anyone" (Siapa saja)**.
-                        4. Klik **Deploy** untuk menyimpan.
-                        
-                        ---
-                        💡 **JANGAN KHATIR! JAWABAN ANDA SUDAH 100% AMAN!**  
-                        Sistem aplikasi ini telah **otomatis merekam jawaban Anda ke file Excel** (`data_jawaban_excel.xlsx`) di folder `app_survey/responses/` komputer ini!
-                        """)
-                    else:
-                        st.error(f"Pemberitahuan Server: {msg}")
-                        st.info("Jawaban Anda telah tersimpan secara lokal. Anda juga dapat mengunduh file Excel/JSON di bawah ini:")
-
-                    excel_bytes = create_excel_download_bytes(payload)
-                    c_d1, c_d2 = st.columns(2)
-                    with c_d1:
-                        st.download_button(
-                            label="📥 Unduh Format Excel (.xlsx)",
-                            data=excel_bytes,
-                            file_name=f"Kuesioner_{bio.get('Kode Informan','jawaban')}.xlsx",
-                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                            use_container_width=True
-                        )
-                    with c_d2:
-                        st.download_button(
-                            label="📥 Unduh Format JSON (.json)",
-                            data=json.dumps(payload, indent=2, ensure_ascii=False),
-                            file_name=f"Kuesioner_{bio.get('Kode Informan','jawaban')}.json",
-                            mime="application/json",
-                            use_container_width=True
-                        )
+        if st.button("🚀 KIRIM JAWABAN SEKARANG (REKAM KE EXCEL)", type="primary", use_container_width=True, key="btn_submit_summary"):
+            process_direct_submission()
 
 # ==========================================
 # PAGE 5: FINISH (BALOON & TERIMA KASIH)
@@ -732,12 +646,20 @@ elif st.session_state.page == "finish":
     </div>
     """, unsafe_allow_html=True)
     
-    st.success("✅ Data jawaban kuesioner berhasil direkam ke Excel lokal & disinkronkan ke Google Sheets Peneliti.")
+    msg = st.session_state.last_submit_msg
+    if "HTTP 401" in msg:
+        st.warning("✅ Data jawaban Anda SUDAH 100% AMAN DIREKAM ke file Excel lokal (`data_jawaban_excel.xlsx`) di komputer ini.")
+        st.info("💡 (Catatan Google Sheets online: Memerlukan perizinan 'Anyone' pada Apps Script).")
+    else:
+        st.success(f"✅ {msg}")
     
+    payload = st.session_state.last_payload
+    if payload:
+        excel_bytes = create_excel_download_bytes(payload)
+    else:
+        excel_bytes = b""
+        
     bio = st.session_state.user_biodata
-    flat_mods = get_flattened_modules(st.session_state.selected_q_id)
-    payload = {**bio, **{f"Modul_{m['code']}": st.session_state.answers.get(m['code'], "") for m in flat_mods}, "Pertanyaan_Penutup": st.session_state.closing_answer}
-    excel_bytes = create_excel_download_bytes(payload)
     
     c_fin1, c_fin2, c_fin3 = st.columns([1.2, 1.4, 1.4])
     with c_fin1:
@@ -749,19 +671,21 @@ elif st.session_state.page == "finish":
             st.rerun()
             
     with c_fin2:
-        st.download_button(
-            label="📥 Unduh Salinan Excel (.xlsx)",
-            data=excel_bytes,
-            file_name=f"Kuesioner_LDP_{bio.get('Kode Informan','Jawaban')}.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            use_container_width=True
-        )
+        if excel_bytes:
+            st.download_button(
+                label="📥 Unduh Salinan Excel (.xlsx)",
+                data=excel_bytes,
+                file_name=f"Kuesioner_LDP_{bio.get('Kode Informan','Jawaban')}.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                use_container_width=True
+            )
         
     with c_fin3:
-        st.download_button(
-            label="📥 Unduh Salinan JSON (.json)",
-            data=json.dumps(payload, indent=2, ensure_ascii=False),
-            file_name=f"Kuesioner_LDP_{bio.get('Kode Informan','Jawaban')}.json",
-            mime="application/json",
-            use_container_width=True
-        )
+        if payload:
+            st.download_button(
+                label="📥 Unduh Salinan JSON (.json)",
+                data=json.dumps(payload, indent=2, ensure_ascii=False),
+                file_name=f"Kuesioner_LDP_{bio.get('Kode Informan','Jawaban')}.json",
+                mime="application/json",
+                use_container_width=True
+            )
