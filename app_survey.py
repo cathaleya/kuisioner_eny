@@ -105,6 +105,46 @@ st.markdown("""
         margin-bottom: 1rem;
         text-align: center;
     }
+
+    /* Mobile Responsive Optimizations for Smartphones (HP & Tablet) */
+    @media (max-width: 768px) {
+        .main .block-container {
+            padding-left: 0.75rem !important;
+            padding-right: 0.75rem !important;
+            padding-top: 1rem !important;
+        }
+        .header-box {
+            padding: 1.2rem !important;
+            border-radius: 10px !important;
+        }
+        .header-box h1 {
+            font-size: 1.35rem !important;
+            line-height: 1.35 !important;
+        }
+        .header-box p {
+            font-size: 0.9rem !important;
+        }
+        .main-question-box {
+            padding: 1rem !important;
+            border-left-width: 4px !important;
+        }
+        .main-question-title {
+            font-size: 1rem !important;
+        }
+        .stButton>button {
+            width: 100% !important;
+            padding: 0.65rem 1rem !important;
+            font-size: 0.95rem !important;
+            margin-bottom: 0.4rem !important;
+        }
+        .stTextArea textarea {
+            font-size: 0.95rem !important;
+        }
+        .domain-badge {
+            font-size: 0.78rem !important;
+            padding: 0.3rem 0.65rem !important;
+        }
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -178,32 +218,45 @@ def save_to_local_excel(payload):
         df_new = pd.DataFrame([payload])
         
         # Save or append to CSV
-        if os.path.exists(LOCAL_CSV_PATH):
-            df_existing = pd.read_csv(LOCAL_CSV_PATH)
-            df_combined = pd.concat([df_existing, df_new], ignore_index=True)
-            df_combined.to_csv(LOCAL_CSV_PATH, index=False, encoding="utf-8-sig")
-        else:
-            df_new.to_csv(LOCAL_CSV_PATH, index=False, encoding="utf-8-sig")
+        try:
+            if os.path.exists(LOCAL_CSV_PATH):
+                df_existing = pd.read_csv(LOCAL_CSV_PATH)
+                df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+                df_combined.to_csv(LOCAL_CSV_PATH, index=False, encoding="utf-8-sig")
+            else:
+                df_new.to_csv(LOCAL_CSV_PATH, index=False, encoding="utf-8-sig")
+        except Exception:
+            pass
             
         # Save or append to Excel
-        if os.path.exists(LOCAL_EXCEL_PATH):
-            df_existing_excel = pd.read_excel(LOCAL_EXCEL_PATH)
-            df_combined_excel = pd.concat([df_existing_excel, df_new], ignore_index=True)
-            df_combined_excel.to_excel(LOCAL_EXCEL_PATH, index=False)
-        else:
-            df_new.to_excel(LOCAL_EXCEL_PATH, index=False)
+        try:
+            if os.path.exists(LOCAL_EXCEL_PATH):
+                df_existing_excel = pd.read_excel(LOCAL_EXCEL_PATH)
+                df_combined_excel = pd.concat([df_existing_excel, df_new], ignore_index=True)
+                df_combined_excel.to_excel(LOCAL_EXCEL_PATH, index=False)
+            else:
+                df_new.to_excel(LOCAL_EXCEL_PATH, index=False)
+        except Exception:
+            pass
             
-        return True, "Data berhasil direkam ke file Excel lokal komputer."
+        return True, "Data berhasil direkam."
     except Exception as e:
-        return False, f"Gagal merekam ke file lokal: {str(e)}"
+        return False, f"Catatan penyimpanan lokal: {str(e)}"
 
-# Helper function to create downloadable Excel file bytes
+# Helper function to create downloadable Excel file bytes (with CSV fallback)
 def create_excel_download_bytes(payload):
-    output = io.BytesIO()
-    df = pd.DataFrame([payload])
-    with pd.ExcelWriter(output, engine='openpyxl') as writer:
-        df.to_excel(writer, index=False, sheet_name='Hasil Kuesioner')
-    return output.getvalue()
+    try:
+        output = io.BytesIO()
+        df = pd.DataFrame([payload])
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
+            df.to_excel(writer, index=False, sheet_name='Hasil Kuesioner')
+        return output.getvalue()
+    except Exception:
+        try:
+            df = pd.DataFrame([payload])
+            return df.to_csv(index=False, encoding='utf-8-sig').encode('utf-8-sig')
+        except Exception:
+            return b""
 
 # Helper function to send data via Google Apps Script & Local Excel
 def submit_to_google_sheets(payload):
