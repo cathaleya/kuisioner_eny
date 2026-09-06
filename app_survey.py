@@ -378,43 +378,25 @@ if st.session_state.page == "intro":
     col_main, col_select = st.columns([1.65, 1])
     
     with col_main:
-        # Intro Card Component matching pengantar.txt exactly
-        st.markdown("""
-        <div class="intro-card">
-            <div class="intro-header">
-                <h2>Pengantar Kuesioner Penelitian</h2>
-            </div>
-            
-            <div class="intro-body">
-                <p style="font-weight: 600;">Assalamu’alaikum warahmatullahi wabarakatuh.</p>
-                <p style="font-weight: 600;">Yth. Bapak/Ibu Responden,</p>
-                
-                <p>Terima kasih atas kesediaan Bapak/Ibu berpartisipasi dalam penelitian ini.</p>
-                
-                <p>Kuesioner ini merupakan bagian dari penelitian disertasi mengenai pengembangan Model Evaluasi Leadership Development Program (LDP).</p>
-                
-                <p>Kuesioner ini bertujuan memperoleh informasi, pengalaman, pandangan, dan penilaian Bapak/Ibu terkait pelaksanaan, hasil, manfaat, serta dampak Leadership Development Program (LDP) sebagai bahan dalam pengembangan model evaluasi yang lebih komprehensif dan sesuai dengan kebutuhan organisasi.</p>
-                
-                <p>Bapak/Ibu diharapkan memberikan jawaban berdasarkan pengalaman, pengamatan, dan kondisi yang sebenarnya.</p>
-                
-                <p>Tidak terdapat jawaban benar atau salah, apabila memungkinkan, Bapak/Ibu dapat memberikan contoh konkret atau informasi pendukung yang relevan untuk memperjelas jawaban.</p>
-                
-                <p>Seluruh informasi yang diberikan akan digunakan semata-mata untuk kepentingan akademik dan penelitian, serta diolah dan disajikan secara bertanggung jawab sesuai dengan prinsip kerahasiaan data penelitian.</p>
-                
-                <p>Partisipasi dan masukan Bapak/Ibu sangat berarti dalam mendukung pengembangan dan penyempurnaan Model Evaluasi LDP yang dihasilkan melalui penelitian ini.</p>
-                
-                <p>Atas waktu, kesediaan, dan kontribusi Bapak/Ibu, saya mengucapkan terima kasih.</p>
-                
-                <p style="font-weight: 600; margin-bottom: 2rem;">Wassalamu’alaikum warahmatullahi wabarakatuh.</p>
-                
-                <div style="border-top: 2px dashed #CBD5E1; padding-top: 1.2rem; margin-top: 1.5rem;">
-                    <p style="font-weight: 700; font-size: 1.2rem; color: #1E3A8A; margin-bottom: 0.2rem;">Eny Cahyaningsih</p>
-                    <p style="margin-bottom: 0.2rem; color: #475569; font-weight: 500;">Penelitian dan Evaluasi Pendidikan</p>
-                    <p style="margin-bottom: 0; color: #475569; font-weight: 500;">Universitas Negeri Jakarta</p>
-                </div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
+        # Intro Component using native Streamlit Markdown
+        with st.container(border=True):
+            st.subheader("📋 Pengantar Kuesioner Penelitian")
+            st.write("")
+            st.markdown("**Assalamu’alaikum warahmatullahi wabarakatuh.**")
+            st.markdown("**Yth. Bapak/Ibu Responden,**")
+            st.write("")
+            st.markdown("Terima kasih atas kesediaan Bapak/Ibu berpartisipasi dalam penelitian ini.")
+            st.markdown("Kuesioner ini merupakan bagian dari penelitian disertasi mengenai pengembangan Model Evaluasi Leadership Development Program (LDP).")
+            st.markdown("Kuesioner ini bertujuan memperoleh informasi, pengalaman, pandangan, dan penilaian Bapak/Ibu terkait pelaksanaan, hasil, manfaat, serta dampak Leadership Development Program (LDP) sebagai bahan dalam pengembangan model evaluasi yang lebih komprehensif dan sesuai dengan kebutuhan organisasi.")
+            st.markdown("Bapak/Ibu diharapkan memberikan jawaban berdasarkan pengalaman, pengamatan, dan kondisi yang sebenarnya.")
+            st.markdown("Tidak terdapat jawaban benar atau salah, apabila memungkinkan, Bapak/Ibu dapat memberikan contoh konkret atau informasi pendukung yang relevan untuk memperjelas jawaban.")
+            st.markdown("Seluruh informasi yang diberikan akan digunakan semata-mata untuk kepentingan akademik dan penelitian, serta diolah dan disajikan secara bertanggung jawab sesuai dengan prinsip kerahasiaan data penelitian.")
+            st.markdown("Partisipasi dan masukan Bapak/Ibu sangat berarti dalam mendukung pengembangan dan penyempurnaan Model Evaluasi LDP yang dihasilkan melalui penelitian ini.")
+            st.markdown("Atas waktu, kesediaan, dan kontribusi Bapak/Ibu, saya mengucapkan terima kasih.")
+            st.markdown("**Wassalamu’alaikum warahmatullahi wabarakatuh.**")
+            st.markdown("---")
+            st.markdown("**Eny Cahyaningsih**")
+            st.caption("Penelitian dan Evaluasi Pendidikan — Universitas Negeri Jakarta")
             
     with col_select:
         st.markdown("""
