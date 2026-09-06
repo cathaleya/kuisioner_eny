@@ -40,8 +40,9 @@ streamlit run app_survey.py
 ### 2. Deploy ke Streamlit Cloud:
 1. Push/unggah folder ini ke repository GitHub.
 2. Buka [share.streamlit.io](https://share.streamlit.io) dan hubungkan dengan repository.
-3. Di **Advanced Settings > Secrets**, tambahkan konfigurasi Apps Script:
+3. Di dasbor Streamlit Cloud, buka **App Settings > Secrets**, lalu salin dan tempel (copy-paste) konfigurasi berikut:
+
 ```toml
 [connections.gsheets]
-spreadsheet = "https://script.google.com/macros/s/YOUR_APPS_SCRIPT_DEPLOYMENT_ID/exec"
+spreadsheet = "https://script.google.com/macros/s/AKfycbyT_n9dXE9zWLXIMUln7pPikWYjX4wB2T-IDmTT_5ftNPhx8QjoXQ9KRy1fU0WYYsqx/exec"
 ```

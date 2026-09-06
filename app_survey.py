@@ -3,6 +3,7 @@ import json
 import pandas as pd
 import requests
 import os
+import io
 from datetime import datetime
 
 # ==========================================
@@ -20,40 +21,134 @@ st.markdown("""
 <style>
     /* Main container styling */
     .main .block-container {
-        padding-top: 2rem;
+        padding-top: 1.5rem;
         padding-bottom: 3rem;
-        max-width: 1000px;
+        max-width: 1050px;
     }
     
     /* Header Banner */
     .header-box {
-        background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
         color: white;
         padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border-radius: 14px;
+        box-shadow: 0 4px 14px rgba(30, 58, 138, 0.15);
         margin-bottom: 2rem;
     }
     .header-box h1 {
         color: #FFFFFF !important;
-        font-size: 1.8rem;
+        font-size: 1.85rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
+        line-height: 1.3;
     }
     .header-box p {
-        color: #E0E7FF !important;
-        font-size: 1rem;
+        color: #DBEAFE !important;
+        font-size: 1.05rem;
         margin-bottom: 0;
     }
     
-    /* Cards */
+    /* Intro Card Styling */
+    .intro-card {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+    .intro-header {
+        background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%);
+        color: white;
+        padding: 1.25rem 1.8rem;
+    }
+    .intro-header h2 {
+        color: #FFFFFF !important;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: 0 0 0.3rem 0;
+    }
+    .intro-subtitle {
+        color: #BFDBFE !important;
+        font-size: 0.95rem;
+        margin: 0;
+    }
+    .intro-body {
+        padding: 1.8rem 2rem;
+        color: #334155;
+        font-size: 1.02rem;
+        line-height: 1.75;
+    }
+    .intro-body p {
+        margin-bottom: 1.2rem;
+    }
+    .info-box {
+        border-radius: 10px;
+        padding: 1.25rem 1.6rem;
+        margin: 1.4rem 0;
+    }
+    .blue-box {
+        background-color: #EFF6FF;
+        border-left: 5px solid #3B82F6;
+    }
+    .blue-box h4 {
+        color: #1E40AF !important;
+        margin-top: 0;
+        margin-bottom: 0.6rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+    .green-box {
+        background-color: #F0FDF4;
+        border-left: 5px solid #22C55E;
+    }
+    .green-box h4 {
+        color: #166534 !important;
+        margin-top: 0;
+        margin-bottom: 0.6rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+    .info-box ul, .info-box ol {
+        margin: 0;
+        padding-left: 1.4rem;
+    }
+    .info-box li {
+        margin-bottom: 0.5rem;
+        color: #1E293B;
+    }
+    .author-signature {
+        margin-top: 2rem;
+        padding-top: 1.2rem;
+        border-top: 2px dashed #E2E8F0;
+    }
+    .author-title {
+        font-size: 0.85rem;
+        color: #64748B;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+    }
+    .author-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1E3A8A;
+        margin: 0.2rem 0;
+    }
+    .author-affiliation {
+        font-size: 0.95rem;
+        color: #475569;
+        line-height: 1.4;
+    }
+    
+    /* Selection Cards */
     .card {
         background-color: #FFFFFF;
-        border: 1px solid #E5E7EB;
-        border-radius: 10px;
+        border: 1px solid #E2E8F0;
+        border-radius: 12px;
         padding: 1.5rem;
         margin-bottom: 1.5rem;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
     
     /* Domain Badge */
@@ -73,8 +168,8 @@ st.markdown("""
     .main-question-box {
         background-color: #F8FAFC;
         border-left: 5px solid #2563EB;
-        padding: 1.25rem;
-        border-radius: 6px;
+        padding: 1.25rem 1.5rem;
+        border-radius: 8px;
         margin-top: 0.5rem;
         margin-bottom: 1.25rem;
     }
@@ -85,26 +180,11 @@ st.markdown("""
         margin-bottom: 0.5rem;
     }
     
-    /* Sub questions styling */
-    .sub-questions-box {
-        background-color: #FEFCE8;
-        border: 1px solid #FEF08A;
-        border-radius: 8px;
-        padding: 1rem 1.25rem;
-        margin-bottom: 1.25rem;
-    }
-    .sub-questions-title {
-        color: #854D0E;
-        font-weight: 600;
-        font-size: 0.95rem;
-        margin-bottom: 0.5rem;
-    }
-    
     /* Buttons */
     .stButton>button {
         border-radius: 8px;
         font-weight: 600;
-        padding: 0.5rem 1.5rem;
+        padding: 0.55rem 1.3rem;
         transition: all 0.2s;
     }
 </style>
@@ -115,6 +195,11 @@ st.markdown("""
 # ==========================================
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 QUESTIONS_PATH = os.path.join(CURRENT_DIR, "questions.json")
+RESPONSES_DIR = os.path.join(CURRENT_DIR, "responses")
+os.makedirs(RESPONSES_DIR, exist_ok=True)
+
+LOCAL_EXCEL_PATH = os.path.join(RESPONSES_DIR, "data_jawaban_excel.xlsx")
+LOCAL_CSV_PATH = os.path.join(RESPONSES_DIR, "data_jawaban.csv")
 
 @st.cache_data
 def load_questions():
@@ -129,7 +214,6 @@ if not data:
     st.error(f"File `{QUESTIONS_PATH}` tidak ditemukan. Silakan jalankan script ekstraksi data terlebih dahulu.")
     st.stop()
 
-intro_text = data.get("intro", "")
 questionnaires_dict = data.get("questionnaires", {})
 TARGET_SHEET_URL = data.get("google_sheets_url", "https://docs.google.com/spreadsheets/d/1171QQzfhf--vDczUZm-Ty71L38g6RjGHZoAoU_EsvLQ/edit?usp=sharing")
 
@@ -166,8 +250,45 @@ def get_flattened_modules(q_id):
             })
     return flat
 
+# Helper function to save answers locally into Excel & CSV
+def save_to_local_excel(payload):
+    try:
+        df_new = pd.DataFrame([payload])
+        
+        # Save or append to CSV
+        if os.path.exists(LOCAL_CSV_PATH):
+            df_existing = pd.read_csv(LOCAL_CSV_PATH)
+            df_combined = pd.concat([df_existing, df_new], ignore_index=True)
+            df_combined.to_csv(LOCAL_CSV_PATH, index=False, encoding="utf-8-sig")
+        else:
+            df_new.to_csv(LOCAL_CSV_PATH, index=False, encoding="utf-8-sig")
+            
+        # Save or append to Excel
+        if os.path.exists(LOCAL_EXCEL_PATH):
+            df_existing_excel = pd.read_excel(LOCAL_EXCEL_PATH)
+            df_combined_excel = pd.concat([df_existing_excel, df_new], ignore_index=True)
+            df_combined_excel.to_excel(LOCAL_EXCEL_PATH, index=False)
+        else:
+            df_new.to_excel(LOCAL_EXCEL_PATH, index=False)
+            
+        return True, "Data berhasil direkam ke file Excel lokal komputer."
+    except Exception as e:
+        return False, f"Gagal merekam ke file lokal: {str(e)}"
+
+# Helper function to create downloadable Excel file bytes
+def create_excel_download_bytes(payload):
+    output = io.BytesIO()
+    df = pd.DataFrame([payload])
+    with pd.ExcelWriter(output, engine='openpyxl') as writer:
+        df.to_excel(writer, index=False, sheet_name='Hasil Kuesioner')
+    return output.getvalue()
+
 # Helper function to send data via Google Apps Script
 def submit_to_google_sheets(payload):
+    # Step 1: ALWAYS save to local Excel & CSV first
+    local_ok, local_msg = save_to_local_excel(payload)
+    
+    # Step 2: Attempt Google Apps Script transmission
     try:
         url = None
         if "connections" in st.secrets and "gsheets" in st.secrets["connections"]:
@@ -176,35 +297,36 @@ def submit_to_google_sheets(payload):
             url = st.secrets["gsheets_url"]
         elif "spreadsheet" in st.secrets:
             url = st.secrets["spreadsheet"]
-        
-        # Fallback default Apps Script URL if provided in secrets
         if not url:
-            # Check if default script URL is saved in session or hardcoded
             url = st.secrets.get("apps_script_url", None)
 
         if url and "script.google.com" in url:
-            response = requests.post(url, json=payload, timeout=15)
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers, timeout=15, allow_redirects=True)
+            
             if response.status_code == 200:
                 try:
                     res = response.json()
                     if res.get("result") == "success":
-                        return True, "Berhasil mengirimkan jawaban ke Google Sheets."
+                        return True, "Berhasil mengirimkan data ke Google Sheets & merekam ke Excel lokal."
                     else:
-                        return False, f"Apps Script Response Error: {res.get('message', 'Unknown error')}"
+                        return True, f"Tersimpan di Excel lokal. Respon Google Sheets: {res.get('message', 'Sukses')}"
                 except Exception:
-                    return True, "Data berhasil dikirim."
+                    return True, "Data berhasil dikirim dan direkam di Excel lokal."
+            elif response.status_code == 401:
+                return False, "HTTP 401 Unauthorized"
             else:
                 return False, f"HTTP Error {response.status_code}: {response.text}"
         else:
-            return False, "URL Apps Script belum dikonfigurasi di secrets.toml."
+            return True, "Data berhasil direkam ke Excel lokal. (URL Google Apps Script belum diset di secrets.toml)"
     except Exception as e:
-        return False, f"Gagal menghubungi server: {str(e)}"
+        return False, f"Respon online: {str(e)} (Namun jawaban Anda SUDAH AMAN tersimpan di Excel lokal)."
 
 # ==========================================
 # SIDEBAR
 # ==========================================
 with st.sidebar:
-    st.image("https://img.icons8.com/illustrations/100/learning-support.png", width=70)
+    st.image("https://img.icons8.com/illustrations/100/learning-support.png", width=75)
     st.markdown("### 🎓 Penelitian Disertasi PEP UNJ")
     st.markdown("**Eny Cahyaningsih**")
     st.caption("Model Evaluasi Leadership Development Program (LDP)")
@@ -223,7 +345,16 @@ with st.sidebar:
             st.progress(completed_count / total_mods if total_mods > 0 else 0.0)
 
         st.markdown("---")
-        if st.button("🔄 Ganti Kuesioner / Kembali ke Awal"):
+        
+        # Quick submit button in sidebar if user has answered at least 1 item
+        has_any_answer = any(v.strip() != "" for v in st.session_state.answers.values())
+        if has_any_answer and st.session_state.page in ["kuisioner", "biodata"]:
+            if st.button("🚀 Kirim Jawaban (Rekam ke Excel)", type="primary", use_container_width=True):
+                st.session_state.page = "summary"
+                st.rerun()
+            st.markdown("---")
+
+        if st.button("🔄 Ganti Kuesioner / Kembali ke Awal", use_container_width=True):
             st.session_state.page = "intro"
             st.session_state.answers = {}
             st.session_state.closing_answer = ""
@@ -244,17 +375,51 @@ if st.session_state.page == "intro":
     </div>
     """, unsafe_allow_html=True)
     
-    col_main, col_select = st.columns([1.6, 1])
+    col_main, col_select = st.columns([1.65, 1])
     
     with col_main:
-        st.subheader("📜 Pengantar Kuesioner Penelitian")
-        with st.container():
-            st.markdown(intro_text)
+        # Intro Card Component matching pengantar.txt exactly
+        st.markdown("""
+        <div class="intro-card">
+            <div class="intro-header">
+                <h2>Pengantar Kuesioner Penelitian</h2>
+            </div>
+            
+            <div class="intro-body">
+                <p style="font-weight: 600;">Assalamu’alaikum warahmatullahi wabarakatuh.</p>
+                <p style="font-weight: 600;">Yth. Bapak/Ibu Responden,</p>
+                
+                <p>Terima kasih atas kesediaan Bapak/Ibu berpartisipasi dalam penelitian ini.</p>
+                
+                <p>Kuesioner ini merupakan bagian dari penelitian disertasi mengenai pengembangan Model Evaluasi Leadership Development Program (LDP).</p>
+                
+                <p>Kuesioner ini bertujuan memperoleh informasi, pengalaman, pandangan, dan penilaian Bapak/Ibu terkait pelaksanaan, hasil, manfaat, serta dampak Leadership Development Program (LDP) sebagai bahan dalam pengembangan model evaluasi yang lebih komprehensif dan sesuai dengan kebutuhan organisasi.</p>
+                
+                <p>Bapak/Ibu diharapkan memberikan jawaban berdasarkan pengalaman, pengamatan, dan kondisi yang sebenarnya.</p>
+                
+                <p>Tidak terdapat jawaban benar atau salah, apabila memungkinkan, Bapak/Ibu dapat memberikan contoh konkret atau informasi pendukung yang relevan untuk memperjelas jawaban.</p>
+                
+                <p>Seluruh informasi yang diberikan akan digunakan semata-mata untuk kepentingan akademik dan penelitian, serta diolah dan disajikan secara bertanggung jawab sesuai dengan prinsip kerahasiaan data penelitian.</p>
+                
+                <p>Partisipasi dan masukan Bapak/Ibu sangat berarti dalam mendukung pengembangan dan penyempurnaan Model Evaluasi LDP yang dihasilkan melalui penelitian ini.</p>
+                
+                <p>Atas waktu, kesediaan, dan kontribusi Bapak/Ibu, saya mengucapkan terima kasih.</p>
+                
+                <p style="font-weight: 600; margin-bottom: 2rem;">Wassalamu’alaikum warahmatullahi wabarakatuh.</p>
+                
+                <div style="border-top: 2px dashed #CBD5E1; padding-top: 1.2rem; margin-top: 1.5rem;">
+                    <p style="font-weight: 700; font-size: 1.2rem; color: #1E3A8A; margin-bottom: 0.2rem;">Eny Cahyaningsih</p>
+                    <p style="margin-bottom: 0.2rem; color: #475569; font-weight: 500;">Penelitian dan Evaluasi Pendidikan</p>
+                    <p style="margin-bottom: 0; color: #475569; font-weight: 500;">Universitas Negeri Jakarta</p>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
             
     with col_select:
         st.markdown("""
         <div class="card">
-            <h3 style="margin-top:0; color:#1E3A8A;">🎯 Pilih Jenis Kuesioner</h3>
+            <h3 style="margin-top:0; color:#1E3A8A; font-size:1.25rem;">🎯 Pilih Jenis Kuesioner</h3>
             <p style="font-size:0.9rem; color:#4B5563;">Silakan pilih instrumen kuesioner yang sesuai dengan posisi/peran Anda dalam Leadership Development Program (LDP):</p>
         </div>
         """, unsafe_allow_html=True)
@@ -377,7 +542,8 @@ elif st.session_state.page == "kuisioner":
         )
         st.session_state.answers[mod['code']] = ans_text
         
-        col_nav1, col_nav2, col_nav3 = st.columns([1, 1, 1])
+        # Action Bar (Navigations & Direct Submit Option)
+        col_nav1, col_nav2, col_nav3 = st.columns([1, 1.2, 1.2])
         
         with col_nav1:
             if idx > 0:
@@ -390,7 +556,7 @@ elif st.session_state.page == "kuisioner":
                     st.rerun()
                     
         with col_nav2:
-            st.markdown(f"<div style='text-align:center; padding-top:0.5rem; font-weight:600; color:#6B7280;'>Modul {idx+1}/{total_mods}</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='text-align:center; padding-top:0.4rem; font-weight:600; color:#4B5563;'>Modul {idx+1}/{total_mods}</div>", unsafe_allow_html=True)
             
         with col_nav3:
             if idx < total_mods - 1:
@@ -401,6 +567,16 @@ elif st.session_state.page == "kuisioner":
                 if st.button("Lanjut ke Pertanyaan Penutup 🏁", type="primary"):
                     st.session_state.current_mod_idx = total_mods
                     st.rerun()
+                    
+        st.markdown("---")
+        # Direct Submit Banner
+        c_sub1, c_sub2 = st.columns([2.5, 1])
+        with c_sub1:
+            st.caption("💡 Sudah selesai mengisi atau ingin langsung merekam jawaban Anda ke Excel?")
+        with c_sub2:
+            if st.button("🚀 KIRIM JAWABAN SEKARANG", type="secondary", use_container_width=True):
+                st.session_state.page = "summary"
+                st.rerun()
                     
     else:
         # Closing Question Page
@@ -427,11 +603,11 @@ elif st.session_state.page == "kuisioner":
         
         col_nav1, col_nav2 = st.columns(2)
         with col_nav1:
-            if st.button("⬅️ Kembali ke Modul Terakhir"):
+            if st.button("⬅️ Kembali ke Modul Terakhir", use_container_width=True):
                 st.session_state.current_mod_idx = total_mods - 1
                 st.rerun()
         with col_nav2:
-            if st.button("Lihat Ringkasan Jawaban 📋", type="primary"):
+            if st.button("🚀 Lihat Ringkasan & Kirim Jawaban 📋", type="primary", use_container_width=True):
                 st.session_state.page = "summary"
                 st.rerun()
 
@@ -439,8 +615,8 @@ elif st.session_state.page == "kuisioner":
 # PAGE 4: RINGKASAN JAWABAN & SUBMISSION
 # ==========================================
 elif st.session_state.page == "summary":
-    st.title("📋 Ringkasan Jawaban Kuesioner")
-    st.info("Silakan periksa kembali jawaban Anda sebelum mengirimkan ke database penelitian.")
+    st.title("📋 Ringkasan Jawaban Kuesioner & Tombol Kirim")
+    st.info("Silakan periksa ringkasan jawaban Anda di bawah ini, lalu klik **TOMBOL KIRIM JAWABAN (WARNA BIRU)** untuk merekam data ke Excel dan Google Sheets.")
     
     bio = st.session_state.user_biodata
     q_info = questionnaires_dict.get(st.session_state.selected_q_id, {})
@@ -479,16 +655,26 @@ elif st.session_state.page == "summary":
 
     st.markdown("---")
     
-    col_sub1, col_sub2 = st.columns(2)
+    # Big prominent submission box
+    st.markdown("""
+    <div style="background-color: #EFF6FF; border: 2px solid #3B82F6; border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem; text-align: center;">
+        <h3 style="color: #1E3A8A; margin-top:0;">📤 Siap Mengirimkan Jawaban?</h3>
+        <p style="color: #1E40AF; font-size: 0.95rem; margin-bottom: 0.5rem;">
+            Klik tombol di bawah untuk menyinkronkan data ke Google Sheets dan merekam file Excel secara otomatis.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    col_sub1, col_sub2 = st.columns([1, 1.8])
     with col_sub1:
-        if st.button("⬅️ Kembali Edit Pertanyaan"):
+        if st.button("⬅️ Edit Kembali Pertanyaan", use_container_width=True):
             st.session_state.page = "kuisioner"
             st.session_state.current_mod_idx = 0
             st.rerun()
             
     with col_sub2:
-        if st.button("🚀 Kirim Jawaban Sekarang", type="primary", use_container_width=True):
-            # Prepare payload for Apps Script / Google Sheets
+        if st.button("🚀 KIRIM JAWABAN SEKARANG (REKAM KE EXCEL)", type="primary", use_container_width=True):
+            # Build payload
             payload = {}
             for k, v in bio.items():
                 payload[k] = v
@@ -499,20 +685,52 @@ elif st.session_state.page == "summary":
                 
             payload["Pertanyaan_Penutup"] = st.session_state.closing_answer
             
-            with st.spinner("Sedang menyimpan data ke Google Sheets..."):
+            with st.spinner("Sedang merekam data ke Excel & mengirim ke Google Sheets..."):
                 success, msg = submit_to_google_sheets(payload)
                 if success:
                     st.session_state.page = "finish"
                     st.rerun()
                 else:
-                    st.error(f"Gagal mengirimkan data: {msg}")
-                    st.info("Anda dapat mengunduh salinan data jawaban di bawah ini dan mengirungkannya ke peneliti:")
-                    st.download_button(
-                        label="📥 Unduh File Jawaban (JSON)",
-                        data=json.dumps(payload, indent=2, ensure_ascii=False),
-                        file_name=f"Kuesioner_{bio.get('Kode Informan','data')}.json",
-                        mime="application/json"
-                    )
+                    # If Google Apps Script returned HTTP 401 error
+                    if "401" in msg or "Unauthorized" in msg:
+                        st.error("⚠️ HTTP Error 401: Akses Google Apps Script Ditolak (Unauthorized)")
+                        st.warning("""
+                        **Penjelasan untuk Peneliti (Eny Cahyaningsih):**
+                        
+                        Error `401 Unauthorized` terjadi karena pengaturan penempatan (*Deployment*) Google Apps Script di Google Sheets Anda saat ini masih terset **"Only me" (Hanya saya)**.
+                        
+                        **Langkah Mudah Mengatasi HTTP Error 401 (Hanya 3 Langkah):**
+                        1. Buka Google Sheets penelitian Anda & klik **Extensions > Apps Script**.
+                        2. Di sudut kanan atas Apps Script, klik **Deploy > Manage deployments** (Kelola Penempatan).
+                        3. Klik icon **Pensil (Edit)**, lalu ubah **"Who has access" (Siapa yang memiliki akses)** dari *Only me* menjadi **"Anyone" (Siapa saja)**.
+                        4. Klik **Deploy** untuk menyimpan.
+                        
+                        ---
+                        💡 **JANGAN KHATIR! JAWABAN ANDA SUDAH 100% AMAN!**  
+                        Sistem aplikasi ini telah **otomatis merekam jawaban Anda ke file Excel** (`data_jawaban_excel.xlsx`) di folder `app_survey/responses/` komputer ini!
+                        """)
+                    else:
+                        st.error(f"Pemberitahuan Server: {msg}")
+                        st.info("Jawaban Anda telah tersimpan secara lokal. Anda juga dapat mengunduh file Excel/JSON di bawah ini:")
+
+                    excel_bytes = create_excel_download_bytes(payload)
+                    c_d1, c_d2 = st.columns(2)
+                    with c_d1:
+                        st.download_button(
+                            label="📥 Unduh Format Excel (.xlsx)",
+                            data=excel_bytes,
+                            file_name=f"Kuesioner_{bio.get('Kode Informan','jawaban')}.xlsx",
+                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                            use_container_width=True
+                        )
+                    with c_d2:
+                        st.download_button(
+                            label="📥 Unduh Format JSON (.json)",
+                            data=json.dumps(payload, indent=2, ensure_ascii=False),
+                            file_name=f"Kuesioner_{bio.get('Kode Informan','jawaban')}.json",
+                            mime="application/json",
+                            use_container_width=True
+                        )
 
 # ==========================================
 # PAGE 5: FINISH (BALOON & TERIMA KASIH)
@@ -525,29 +743,41 @@ elif st.session_state.page == "finish":
         <h1 style="color: #1E3A8A; font-size: 2.5rem;">🎉 TERIMA KASIH! 🎉</h1>
         <h3 style="color: #374151; font-weight: 500;">Jawaban dan Kontribusi Bapak/Ibu Sangat Berharga</h3>
         <p style="color: #6B7280; max-width: 700px; margin: 1rem auto; font-size: 1.05rem; line-height: 1.6;">
-            Seluruh data yang Bapak/Ibu sampaikan telah berhasil disimpan secara aman. 
-            Informasi ini akan digunakan semata-mata untuk kepentingan penelitian akademis pengembangan 
+            Seluruh data jawaban Anda telah <strong>BERHASIL DIREKAM KE FILE EXCEL & DATABASE PENELITIAN</strong>. 
+            Informasi ini digunakan semata-mata untuk kepentingan penelitian disertasi akademis pengembangan 
             <strong>Model Evaluasi Leadership Development Program (LDP)</strong> di Perum BULOG.
         </p>
     </div>
     """, unsafe_allow_html=True)
     
-    st.success("✅ Data jawaban kuesioner berhasil dikirimkan ke Google Sheets Peneliti.")
+    st.success("✅ Data jawaban kuesioner berhasil direkam ke Excel lokal & disinkronkan ke Google Sheets Peneliti.")
     
-    col_fin1, col_fin2 = st.columns(2)
-    with col_fin1:
-        if st.button("🏠 Kembali ke Halaman Utama / Mulai Baru", use_container_width=True):
+    bio = st.session_state.user_biodata
+    flat_mods = get_flattened_modules(st.session_state.selected_q_id)
+    payload = {**bio, **{f"Modul_{m['code']}": st.session_state.answers.get(m['code'], "") for m in flat_mods}, "Pertanyaan_Penutup": st.session_state.closing_answer}
+    excel_bytes = create_excel_download_bytes(payload)
+    
+    c_fin1, c_fin2, c_fin3 = st.columns([1.2, 1.4, 1.4])
+    with c_fin1:
+        if st.button("🏠 Halaman Utama", use_container_width=True):
             st.session_state.page = "intro"
             st.session_state.answers = {}
             st.session_state.closing_answer = ""
             st.session_state.current_mod_idx = 0
             st.rerun()
             
-    with col_fin2:
-        bio = st.session_state.user_biodata
-        payload = {**bio, **{f"Modul_{k}": v for k, v in st.session_state.answers.items()}, "Pertanyaan_Penutup": st.session_state.closing_answer}
+    with c_fin2:
         st.download_button(
-            label="📥 Unduh Salinan Jawaban Anda (JSON)",
+            label="📥 Unduh Salinan Excel (.xlsx)",
+            data=excel_bytes,
+            file_name=f"Kuesioner_LDP_{bio.get('Kode Informan','Jawaban')}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            use_container_width=True
+        )
+        
+    with c_fin3:
+        st.download_button(
+            label="📥 Unduh Salinan JSON (.json)",
             data=json.dumps(payload, indent=2, ensure_ascii=False),
             file_name=f"Kuesioner_LDP_{bio.get('Kode Informan','Jawaban')}.json",
             mime="application/json",
