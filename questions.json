@@ -1,0 +1,989 @@
+{
+  "intro": "Pengantar Kuesioner Penelitian\nAssalamu’alaikum warahmatullahi wabarakatuh.\nYth. Bapak/Ibu Responden,\nTerima kasih atas kesediaan Bapak/Ibu berpartisipasi dalam penelitian ini. Kuesioner ini merupakan bagian dari penelitian disertasi mengenai pengembangan Model Evaluasi Leadership Development Program (LDP).\nKuesioner ini bertujuan memperoleh informasi, pengalaman, pandangan, dan penilaian Bapak/Ibu terkait pelaksanaan, hasil, manfaat, serta dampak Leadership Development Program (LDP) sebagai bahan dalam pengembangan model evaluasi yang lebih komprehensif dan sesuai dengan kebutuhan organisasi.\nBapak/Ibu diharapkan memberikan jawaban berdasarkan pengalaman, pengamatan, dan kondisi yang sebenarnya. Tidak terdapat jawaban benar atau salah. Apabila memungkinkan, Bapak/Ibu dapat memberikan contoh konkret atau informasi pendukung yang relevan untuk memperjelas jawaban.\nSeluruh informasi yang diberikan akan digunakan semata-mata untuk kepentingan akademik dan penelitian, serta diolah dan disajikan secara bertanggung jawab sesuai dengan prinsip kerahasiaan data penelitian.\nPartisipasi dan masukan Bapak/Ibu sangat berarti dalam mendukung pengembangan dan penyempurnaan Model Evaluasi LDP yang dihasilkan melalui penelitian ini.\nAtas waktu, kesediaan, dan kontribusi Bapak/Ibu, saya mengucapkan terima kasih.\nWassalamu’alaikum warahmatullahi wabarakatuh.\nEny CahyaningsihPenelitian dan Evaluasi PendidikanUniversitas Negeri Jakarta\r\n",
+  "google_sheets_url": "https://docs.google.com/spreadsheets/d/1171QQzfhf--vDczUZm-Ty71L38g6RjGHZoAoU_EsvLQ/edit?usp=sharing",
+  "questionnaires": {
+    "peserta_ldp": {
+      "id": "peserta_ldp",
+      "filename": "1. Kuesioner Peserta LDP.docx",
+      "title": "1. Kuesioner Peserta LDP",
+      "role_name": "Peserta Leadership Development Program (LDP)",
+      "domains": [
+        {
+          "title": "DOMAIN 1. KONTEKS STRATEGIS DAN KEBUTUHAN LDP",
+          "modules": [
+            {
+              "code": "M1",
+              "title": "M1. Kondisi Aktual LDP",
+              "main_question": "Bagaimana Bapak/Ibu melihat pelaksanaan Leadership Development Program (LDP) selama ini, termasuk hal yang sudah berjalan baik dan yang masih perlu diperbaiki?",
+              "sub_questions": [
+                "Bagaimana proses penyelenggaraan, materi, metode pembelajaran, dan peran fasilitator?",
+                "Bagaimana keterlibatan peserta dan dukungan atasan sebelum, selama, dan setelah LDP?",
+                "Sejauh mana Bapak/Ibu memperoleh kesempatan menerapkan hasil pembelajaran di tempat kerja?",
+                "Apa manfaat paling nyata dan bagian yang hasilnya belum sesuai harapan?",
+                "Dapatkah diberikan contoh konkret?"
+              ]
+            },
+            {
+              "code": "M2",
+              "title": "M2. Tujuan dan Hasil yang Diharapkan",
+              "main_question": "Apa tujuan utama LDP dan perubahan apa yang seharusnya dihasilkan pada peserta, unit kerja, dan organisasi?",
+              "sub_questions": [
+                "Kompetensi kepemimpinan apa yang seharusnya berkembang?",
+                "Perubahan perilaku apa yang diharapkan ketika peserta kembali bekerja?",
+                "Hasil apa yang diharapkan pada kinerja individu, tim, unit, atau organisasi?",
+                "Apa hasil jangka pendek, menengah, dan panjang?",
+                "Bagaimana keberhasilan LDP seharusnya terlihat?"
+              ]
+            },
+            {
+              "code": "M4",
+              "title": "M4. Kesenjangan Kebutuhan LDP",
+              "main_question": "Jika dibandingkan dengan kondisi yang dibutuhkan organisasi, kesenjangan apa yang masih terdapat dalam LDP dan mana yang paling prioritas?",
+              "sub_questions": [
+                "Apa yang sudah tersedia tetapi perlu diperkuat?",
+                "Apa yang seharusnya tersedia tetapi belum tersedia?",
+                "Adakah kesenjangan kompetensi, perilaku, kinerja, atau informasi yang Bapak/Ibu rasakan?",
+                "Apa dampaknya bagi peserta dan pekerjaan?",
+                "Kesenjangan mana yang paling prioritas untuk diperbaiki?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 2. SISTEM EVALUASI LDP YANG BERJALAN",
+          "modules": [
+            {
+              "code": "M5",
+              "title": "M5. Praktik dan Tujuan Evaluasi Saat Ini",
+              "main_question": "Bagaimana evaluasi LDP dilaksanakan selama ini dan untuk tujuan apa evaluasi tersebut dilakukan?",
+              "sub_questions": [
+                "Pada tahap apa Bapak/Ibu mengikuti evaluasi?",
+                "Informasi apa yang diminta atau diukur dari peserta?",
+                "Apakah tujuan evaluasi dijelaskan dan dipahami oleh peserta?",
+                "Apakah hasil evaluasi pernah disampaikan kembali kepada peserta?"
+              ]
+            },
+            {
+              "code": "M6",
+              "title": "M6. Aspek, Indikator, dan Waktu Pengukuran",
+              "main_question": "Apa saja yang saat ini diukur dalam evaluasi LDP dan kapan pengukuran tersebut dilakukan?",
+              "sub_questions": [
+                "Apakah mencakup kepuasan, pembelajaran, kompetensi, perilaku, atau kinerja?",
+                "Apakah dilakukan sebelum, selama, segera setelah, atau setelah peserta kembali bekerja?",
+                "Apakah pengukuran hanya sekali atau dilakukan kembali setelah beberapa waktu?",
+                "Apakah Bapak/Ibu mengetahui standar atau target pencapaiannya?"
+              ]
+            },
+            {
+              "code": "M7",
+              "title": "M7. Sumber Data dan Instrumen",
+              "main_question": "Dari siapa dan dengan instrumen apa data evaluasi LDP saat ini diperoleh?",
+              "sub_questions": [
+                "Instrumen apa yang pernah Bapak/Ibu isi atau ikuti: kuesioner, tes, self-assessment, 360-degree feedback, wawancara, observasi, project, atau bentuk lain?",
+                "Apakah atasan, rekan kerja, bawahan, mentor, atau pihak lain juga diminta memberikan penilaian?",
+                "Menurut Bapak/Ibu, apakah instrumen tersebut mampu menggambarkan hasil LDP secara memadai?"
+              ]
+            },
+            {
+              "code": "M10",
+              "title": "M10. Pemanfaatan Hasil Evaluasi",
+              "main_question": "Bagaimana hasil evaluasi selama ini digunakan dan ditindaklanjuti?",
+              "sub_questions": [
+                "Apakah Bapak/Ibu menerima feedback atas hasil evaluasi?",
+                "Apakah hasil tersebut digunakan untuk coaching, mentoring, development plan, penugasan, atau pengembangan berikutnya?",
+                "Dapatkah diberikan contoh tindak lanjut yang pernah Bapak/Ibu alami?",
+                "Apakah tindak lanjut tersebut dipantau?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 3. KESENJANGAN DAN AKAR MASALAH SISTEM EVALUASI",
+          "modules": [
+            {
+              "code": "M11",
+              "title": "M11. Kecukupan dan Kesenjangan Sistem Evaluasi",
+              "main_question": "Jika dibandingkan antara sistem evaluasi saat ini dengan informasi yang sebenarnya dibutuhkan, bagian apa yang sudah memadai dan bagian apa yang masih belum memadai?",
+              "sub_questions": [
+                "Informasi apa yang sudah dapat Bapak/Ibu peroleh dengan baik?",
+                "Informasi apa yang seharusnya tersedia bagi peserta tetapi belum tersedia?",
+                "Apa yang seharusnya diukur tetapi belum diukur?",
+                "Informasi apa yang paling dibutuhkan untuk mengetahui perkembangan setelah LDP?"
+              ]
+            },
+            {
+              "code": "M12",
+              "title": "M12. Gap Transfer dan Perubahan Perilaku",
+              "main_question": "Sejauh mana evaluasi saat ini mampu menunjukkan bahwa hasil LDP benar-benar diterapkan dan menjadi perilaku kerja?",
+              "sub_questions": [
+                "Apakah perubahan perilaku dipantau setelah pelatihan?",
+                "Siapa yang menilai perubahan tersebut dan kapan dilakukan?",
+                "Apakah atasan, rekan kerja, atau bawahan dilibatkan?",
+                "Apakah dukungan atasan, coaching, mentoring, dan kesempatan praktik dipertimbangkan?",
+                "Bagaimana membedakan perubahan sesaat dengan perilaku yang sudah konsisten?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 4. KEBUTUHAN MODEL EVALUASI",
+          "modules": [
+            {
+              "code": "M18",
+              "title": "M18. Kebutuhan Kejelasan dan Keselarasan",
+              "main_question": "Hal-hal apa yang perlu dipastikan kejelasan dan kesesuaiannya agar keberhasilan LDP dapat dievaluasi secara tepat?",
+              "sub_questions": [
+                "Apakah tujuan LDP dan kompetensi yang ditargetkan sudah jelas bagi peserta?",
+                "Apakah hasil yang diharapkan setelah kembali bekerja sudah jelas?",
+                "Apakah hubungan antara materi, kebutuhan pekerjaan, dan hasil yang diharapkan perlu diperjelas?",
+                "Siapa yang seharusnya menjelaskan dan memastikan keselarasan tersebut?"
+              ]
+            },
+            {
+              "code": "M19",
+              "title": "M19. Pencapaian Kompetensi",
+              "main_question": "Informasi dan bukti apa yang diperlukan untuk memastikan peserta benar-benar memperoleh kompetensi yang ditargetkan?",
+              "sub_questions": [
+                "Apa yang perlu diketahui mengenai pengetahuan, keterampilan, sikap, atau kompetensi kepemimpinan?",
+                "Bukti apa yang menurut Bapak/Ibu paling meyakinkan: tes, simulasi, project, assessment, atau bukti lain?",
+                "Apakah perlu membandingkan kondisi sebelum dan setelah LDP?",
+                "Bagaimana peserta mengetahui kompetensi yang sudah dan belum dikuasai?"
+              ]
+            },
+            {
+              "code": "M20",
+              "title": "M20. Standar Keberhasilan",
+              "main_question": "Bagaimana keberhasilan pencapaian pembelajaran atau kompetensi peserta seharusnya ditentukan?",
+              "sub_questions": [
+                "Apakah diperlukan standar kompetensi atau kriteria minimal?",
+                "Apakah keberhasilan perlu dibandingkan dengan kondisi sebelum LDP atau kebutuhan jabatan?",
+                "Siapa yang seharusnya menetapkan standar keberhasilan?",
+                "Apa tindak lanjut bagi peserta yang belum mencapai standar?"
+              ]
+            },
+            {
+              "code": "M21",
+              "title": "M21. Transfer dan Perubahan Perilaku",
+              "main_question": "Bagaimana evaluasi seharusnya memastikan bahwa kompetensi hasil LDP telah diterapkan secara konsisten dalam pekerjaan?",
+              "sub_questions": [
+                "Perilaku kepemimpinan apa yang perlu diamati?",
+                "Siapa yang paling tepat memberikan penilaian?",
+                "Apakah diperlukan penilaian dari beberapa sumber dan pengamatan dari waktu ke waktu?",
+                "Bukti pekerjaan atau hasil project apa yang dapat digunakan?",
+                "Bagaimana membedakan perilaku sesaat dengan kebiasaan yang sudah terbentuk?"
+              ]
+            },
+            {
+              "code": "M22",
+              "title": "M22. Lingkungan Transfer",
+              "main_question": "Faktor apa yang mendukung atau menghambat penerapan dan keberlanjutan perilaku hasil LDP?",
+              "sub_questions": [
+                "Bagaimana pengaruh dukungan atasan, coaching, mentoring, kesempatan praktik, budaya kerja, beban kerja, kewenangan, reward, KPI, dan motivasi?",
+                "Faktor mana yang paling menentukan berdasarkan pengalaman Bapak/Ibu?",
+                "Apakah faktor lingkungan tersebut perlu ikut dinilai dalam evaluasi LDP?",
+                "Apa dukungan yang paling dibutuhkan peserta setelah kembali bekerja?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 5. KEBUTUHAN PEMANGKU KEPENTINGAN DAN PENGAMBILAN KEPUTUSAN",
+          "modules": [
+            {
+              "code": "M30",
+              "title": "M30. Format Penyajian Informasi",
+              "main_question": "Dalam bentuk apa hasil evaluasi seharusnya disajikan agar mudah dipahami dan digunakan oleh peserta?",
+              "sub_questions": [
+                "Apakah peserta lebih membutuhkan laporan individual, profil kompetensi, grafik perkembangan, scorecard, atau bentuk lain?",
+                "Informasi apa yang harus ditampilkan secara ringkas dan apa yang perlu dijelaskan lebih detail?",
+                "Apakah laporan perlu memuat kekuatan, area pengembangan, dan rekomendasi tindak lanjut?",
+                "Bagaimana cara penyampaian feedback yang paling membantu peserta?"
+              ]
+            },
+            {
+              "code": "M32",
+              "title": "M32. Tindak Lanjut dan Feedback Loop",
+              "main_question": "Bagaimana hasil evaluasi seharusnya ditindaklanjuti dan digunakan kembali untuk memperbaiki peserta, program, serta kebijakan pengembangan SDM?",
+              "sub_questions": [
+                "Tindak lanjut apa yang paling dibutuhkan peserta: feedback, coaching, mentoring, development plan, learning assignment, monitoring, atau evaluasi ulang?",
+                "Siapa yang seharusnya mendampingi dan memantau tindak lanjut?",
+                "Bagaimana peserta mengetahui perkembangan setelah tindak lanjut dilakukan?",
+                "Apa yang perlu diperbaiki pada LDP berdasarkan pengalaman peserta?"
+              ]
+            }
+          ]
+        }
+      ],
+      "closing_question": "Apakah ada hal penting terkait pelaksanaan, evaluasi, atau pengembangan LDP yang menurut Bapak/Ibu belum kami tanyakan tetapi perlu kami ketahui?"
+    },
+    "atasan_mentor": {
+      "id": "atasan_mentor",
+      "filename": "2. Kuesioner Atasan Mentor.docx",
+      "title": "2. Kuesioner Atasan Mentor",
+      "role_name": "Atasan / Mentor Peserta LDP",
+      "domains": [
+        {
+          "title": "DOMAIN 1. KONTEKS STRATEGIS DAN KEBUTUHAN LDP",
+          "modules": [
+            {
+              "code": "M1",
+              "title": "M1. Kondisi Aktual LDP",
+              "main_question": "Bagaimana Bapak/Ibu melihat pelaksanaan Leadership Development Program (LDP) selama ini, termasuk hal yang sudah berjalan baik dan yang masih perlu diperbaiki?",
+              "sub_questions": [
+                "Dari perspektif atasan/mentor/coach, bagian apa yang paling relevan dengan kebutuhan pekerjaan peserta?",
+                "Bagaimana komunikasi antara pengelola LDP, peserta, dan atasan sebelum, selama, dan setelah program?",
+                "Apakah peserta memperoleh kesempatan yang cukup untuk menerapkan hasil pembelajaran?",
+                "Apa manfaat paling nyata yang Bapak/Ibu lihat pada peserta?",
+                "Apa yang masih perlu diperbaiki?"
+              ]
+            },
+            {
+              "code": "M2",
+              "title": "M2. Tujuan dan Hasil yang Diharapkan",
+              "main_question": "Apa tujuan utama LDP dan perubahan apa yang seharusnya dihasilkan pada peserta, unit kerja, dan organisasi?",
+              "sub_questions": [
+                "Kompetensi kepemimpinan apa yang seharusnya berkembang?",
+                "Perubahan perilaku apa yang seharusnya terlihat setelah peserta kembali bekerja?",
+                "Hasil apa yang diharapkan pada kinerja individu dan tim?",
+                "Bagaimana keberhasilan LDP seharusnya terlihat dari perspektif atasan/mentor/coach?"
+              ]
+            },
+            {
+              "code": "M4",
+              "title": "M4. Kesenjangan Kebutuhan LDP",
+              "main_question": "Jika dibandingkan dengan kondisi yang dibutuhkan organisasi, kesenjangan apa yang masih terdapat dalam LDP dan mana yang paling prioritas?",
+              "sub_questions": [
+                "Kompetensi atau perilaku apa yang masih belum berkembang optimal?",
+                "Apakah terdapat kesenjangan antara materi LDP dan tantangan pekerjaan nyata?",
+                "Apakah terdapat kesenjangan antara hasil pembelajaran dan penerapannya di tempat kerja?",
+                "Apa dampaknya terhadap peserta, tim, atau unit kerja?",
+                "Mana yang paling prioritas untuk diperbaiki?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 2. SISTEM EVALUASI LDP YANG BERJALAN",
+          "modules": [
+            {
+              "code": "M7",
+              "title": "M7. Sumber Data dan Instrumen",
+              "main_question": "Dari siapa dan dengan instrumen apa data evaluasi LDP saat ini diperoleh?",
+              "sub_questions": [
+                "Apakah Bapak/Ibu pernah diminta menilai peserta setelah LDP?",
+                "Instrumen apa yang digunakan: assessment atasan, observasi, 360-degree feedback, wawancara, KPI, project, atau bentuk lain?",
+                "Apakah rekan kerja, bawahan, atau mentor lain ikut memberikan penilaian?",
+                "Menurut Bapak/Ibu, apakah instrumen yang digunakan cukup menggambarkan perubahan perilaku peserta?"
+              ]
+            },
+            {
+              "code": "M10",
+              "title": "M10. Pemanfaatan Hasil Evaluasi",
+              "main_question": "Bagaimana hasil evaluasi selama ini digunakan dan ditindaklanjuti?",
+              "sub_questions": [
+                "Apakah atasan/mentor menerima hasil evaluasi peserta?",
+                "Apakah hasil tersebut digunakan untuk coaching, mentoring, penugasan, atau development plan?",
+                "Dapatkah diberikan contoh keputusan atau tindak lanjut yang pernah dilakukan?",
+                "Apakah tindak lanjut tersebut dipantau secara sistematis?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 3. KESENJANGAN DAN AKAR MASALAH SISTEM EVALUASI",
+          "modules": [
+            {
+              "code": "M11",
+              "title": "M11. Kecukupan dan Kesenjangan Sistem Evaluasi",
+              "main_question": "Jika dibandingkan antara sistem evaluasi saat ini dengan informasi yang sebenarnya dibutuhkan, bagian apa yang sudah memadai dan bagian apa yang masih belum memadai?",
+              "sub_questions": [
+                "Informasi apa yang sudah membantu Bapak/Ibu dalam membina peserta?",
+                "Informasi apa yang masih belum tersedia tetapi dibutuhkan oleh atasan/mentor?",
+                "Apakah evaluasi sudah cukup menunjukkan perubahan perilaku dan kinerja?",
+                "Informasi apa yang paling sulit diperoleh?"
+              ]
+            },
+            {
+              "code": "M12",
+              "title": "M12. Gap Transfer dan Perubahan Perilaku",
+              "main_question": "Sejauh mana evaluasi saat ini mampu menunjukkan bahwa hasil LDP benar-benar diterapkan dan menjadi perilaku kerja?",
+              "sub_questions": [
+                "Perubahan perilaku apa yang paling mudah atau paling sulit diamati?",
+                "Berapa lama setelah LDP perubahan tersebut mulai terlihat?",
+                "Apakah penilaian dilakukan lebih dari satu kali?",
+                "Apakah penilaian atasan perlu dikombinasikan dengan rekan kerja, bawahan, atau bukti kerja?",
+                "Bagaimana membedakan perubahan sesaat dengan perilaku yang sudah konsisten?"
+              ]
+            },
+            {
+              "code": "M13",
+              "title": "M13. Gap Hasil, Dampak, dan Kontribusi",
+              "main_question": "Sejauh mana evaluasi saat ini dapat memberikan bukti mengenai kontribusi LDP terhadap perubahan kinerja individu, unit, dan organisasi?",
+              "sub_questions": [
+                "Apakah hasil LDP dikaitkan dengan KPI, produktivitas, kualitas keputusan, inovasi, atau efektivitas tim?",
+                "Apakah terdapat perbandingan kondisi sebelum dan setelah LDP?",
+                "Faktor lain apa yang mungkin memengaruhi perubahan kinerja peserta?",
+                "Bukti seperti apa yang menurut Bapak/Ibu cukup meyakinkan bahwa LDP berkontribusi terhadap perubahan tersebut?"
+              ]
+            },
+            {
+              "code": "M15",
+              "title": "M15. Hambatan dan Akar Penyebab",
+              "main_question": "Apa hambatan utama dalam evaluasi LDP dan apa penyebab mendasar dari hambatan tersebut?",
+              "sub_questions": [
+                "Apakah terkait waktu atasan, kualitas instrumen, keterbatasan data, koordinasi, komitmen peserta, atau sistem monitoring?",
+                "Pada tahap mana hambatan paling sering terjadi?",
+                "Mengapa hambatan tersebut terjadi?",
+                "Apa penyebab yang lebih mendasar di balik kondisi tersebut?"
+              ]
+            },
+            {
+              "code": "M16",
+              "title": "M16. Konsekuensi dan Prioritas Perbaikan",
+              "main_question": "Apa konsekuensi dari kelemahan sistem evaluasi tersebut dan aspek apa yang paling prioritas diperbaiki?",
+              "sub_questions": [
+                "Apa dampaknya terhadap coaching atau pengembangan peserta?",
+                "Apakah ada risiko salah menilai kesiapan atau perkembangan peserta?",
+                "Informasi apa yang harus tersedia agar atasan dapat melakukan tindak lanjut dengan lebih tepat?",
+                "Mana yang paling mendesak untuk diperbaiki?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 4. KEBUTUHAN KOMPONEN MODEL EVALUASI CAHYA",
+          "modules": [
+            {
+              "code": "M18",
+              "title": "M18. Clarity - Kebutuhan Kejelasan dan Keselarasan",
+              "main_question": "Hal-hal apa yang perlu dipastikan kejelasan dan kesesuaiannya agar keberhasilan LDP dapat dievaluasi secara tepat?",
+              "sub_questions": [
+                "Apakah atasan perlu mengetahui tujuan program, kompetensi yang ditargetkan, dan expected outcomes peserta?",
+                "Apakah perilaku yang diharapkan setelah LDP perlu dijelaskan sejak awal?",
+                "Bagaimana keselarasan antara target LDP dan kebutuhan pekerjaan peserta seharusnya dinilai?",
+                "Siapa yang seharusnya memastikan kejelasan tersebut?"
+              ]
+            },
+            {
+              "code": "M21",
+              "title": "M21. Habit & Behaviour - Transfer dan Perubahan Perilaku",
+              "main_question": "Bagaimana evaluasi seharusnya mengetahui bahwa kompetensi hasil LDP telah diterapkan secara konsisten dalam pekerjaan?",
+              "sub_questions": [
+                "Perilaku kepemimpinan apa yang perlu diamati oleh atasan/mentor?",
+                "Siapa saja yang sebaiknya memberikan penilaian?",
+                "Apakah diperlukan multi-source dan longitudinal assessment?",
+                "Bukti kerja atau challenge project apa yang dapat digunakan?",
+                "Bagaimana membedakan perilaku sesaat dengan kebiasaan yang benar-benar terbentuk?"
+              ]
+            },
+            {
+              "code": "M22",
+              "title": "M22. Habit & Behaviour - Lingkungan Transfer",
+              "main_question": "Faktor apa yang mendukung atau menghambat penerapan dan keberlanjutan perilaku hasil LDP?",
+              "sub_questions": [
+                "Bagaimana pengaruh dukungan atasan, coaching, mentoring, kesempatan praktik, budaya, beban kerja, kewenangan, reward, KPI, dan dukungan tim?",
+                "Faktor mana yang paling menentukan menurut pengalaman Bapak/Ibu?",
+                "Apa yang dapat dilakukan atasan untuk meningkatkan transfer pembelajaran?",
+                "Apakah faktor-faktor lingkungan tersebut perlu ikut diukur dalam evaluasi?"
+              ]
+            },
+            {
+              "code": "M23",
+              "title": "M23. Yield - Hasil dan Kontribusi terhadap Kinerja",
+              "main_question": "Pada tingkat individu, tim, unit, dan organisasi, hasil apa yang perlu diukur, serta bagaimana kontribusi LDP terhadap hasil tersebut seharusnya dinilai?",
+              "sub_questions": [
+                "Pada tingkat individu: perubahan kinerja dan efektivitas kepemimpinan apa yang relevan?",
+                "Pada tingkat tim: perubahan kolaborasi, engagement, kualitas keputusan, atau produktivitas apa yang relevan?",
+                "Pada tingkat unit: KPI, inovasi, efisiensi, atau hasil kerja apa yang realistis diukur?",
+                "Berapa lama setelah LDP hasil tersebut realistis mulai terlihat?",
+                "Bagaimana faktor selain LDP perlu dipertimbangkan?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 5. KEBUTUHAN PEMANGKU KEPENTINGAN DAN PENGAMBILAN KEPUTUSAN",
+          "modules": [
+            {
+              "code": "M29",
+              "title": "M29. Waktu Ketersediaan Informasi",
+              "main_question": "Kapan masing-masing informasi evaluasi harus tersedia agar dapat digunakan secara efektif oleh atasan, mentor, atau coach?",
+              "sub_questions": [
+                "Kapan perubahan perilaku mulai realistis untuk dinilai?",
+                "Informasi apa yang dibutuhkan segera setelah peserta kembali bekerja?",
+                "Informasi apa yang baru bermakna setelah peserta menjalankan pekerjaannya dalam periode tertentu?",
+                "Apakah waktu evaluasi perlu diselaraskan dengan coaching, talent review, atau penilaian kinerja?"
+              ]
+            },
+            {
+              "code": "M31",
+              "title": "M31. Penggunaan dan Kekuatan Bukti untuk Keputusan",
+              "main_question": "Untuk keputusan apa hasil evaluasi akan digunakan, dan seberapa kuat bukti yang diperlukan sebelum keputusan dibuat?",
+              "sub_questions": [
+                "Apakah hasil digunakan untuk coaching, penugasan, development plan, talent review, atau rekomendasi pengembangan?",
+                "Apakah satu penilaian dari atasan cukup atau perlu triangulasi?",
+                "Apakah perubahan perilaku perlu diamati pada beberapa kesempatan?",
+                "Bagaimana jika hasil self-assessment, atasan, dan sumber lain berbeda?",
+                "Keputusan apa yang tidak seharusnya hanya bergantung pada satu hasil evaluasi?"
+              ]
+            },
+            {
+              "code": "M32",
+              "title": "M32. Tindak Lanjut dan Feedback Loop",
+              "main_question": "Bagaimana hasil evaluasi seharusnya ditindaklanjuti dan digunakan kembali untuk memperbaiki peserta, program, serta kebijakan pengembangan SDM?",
+              "sub_questions": [
+                "Tindak lanjut apa yang menjadi tanggung jawab atasan/mentor/coach?",
+                "Bagaimana feedback sebaiknya diberikan kepada peserta?",
+                "Bagaimana coaching atau development plan seharusnya disusun berdasarkan hasil evaluasi?",
+                "Bagaimana tindak lanjut dipantau dan dievaluasi kembali?"
+              ]
+            }
+          ]
+        }
+      ],
+      "closing_question": "Apakah ada hal penting terkait pelaksanaan, evaluasi, perubahan perilaku, atau tindak lanjut LDP yang menurut Bapak/Ibu belum kami tanyakan tetapi perlu kami ketahui?"
+    },
+    "pengelola_fasilitator": {
+      "id": "pengelola_fasilitator",
+      "filename": "3. Kuesioner Pengelola LDP Fasilitator.docx",
+      "title": "3. Kuesioner Pengelola LDP Fasilitator",
+      "role_name": "Pengelola LDP / Fasilitator / Trainer",
+      "domains": [
+        {
+          "title": "DOMAIN 1. KONTEKS STRATEGIS DAN KEBUTUHAN LDP",
+          "modules": [
+            {
+              "code": "M1",
+              "title": "M1. Kondisi Aktual LDP",
+              "main_question": "Bagaimana Bapak/Ibu melihat pelaksanaan Leadership Development Program (LDP) selama ini, termasuk hal yang sudah berjalan baik dan yang masih perlu diperbaiki?",
+              "sub_questions": []
+            },
+            {
+              "code": "M2",
+              "title": "M2. Tujuan dan Hasil yang Diharapkan",
+              "main_question": "Apa tujuan utama LDP dan perubahan apa yang seharusnya dihasilkan pada peserta, unit kerja, dan organisasi?",
+              "sub_questions": []
+            },
+            {
+              "code": "M3",
+              "title": "M3. Keselarasan Strategis dan Tantangan Kepemimpinan",
+              "main_question": "Bagaimana kesesuaian LDP saat ini dengan kebutuhan kepemimpinan dan tantangan strategis Perum BULOG?",
+              "sub_questions": []
+            },
+            {
+              "code": "M4",
+              "title": "M4. Kesenjangan Kebutuhan LDP",
+              "main_question": "Jika dibandingkan dengan kondisi yang dibutuhkan organisasi, kesenjangan apa yang masih terdapat dalam LDP dan mana yang paling prioritas?",
+              "sub_questions": []
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 2. SISTEM EVALUASI LDP YANG BERJALAN",
+          "modules": [
+            {
+              "code": "M5",
+              "title": "M5. Praktik dan Tujuan Evaluasi Saat Ini",
+              "main_question": "Bagaimana evaluasi LDP dilaksanakan selama ini dan untuk tujuan apa evaluasi tersebut dilakukan?",
+              "sub_questions": []
+            },
+            {
+              "code": "M6",
+              "title": "M6. Aspek, Indikator, dan Waktu Pengukuran",
+              "main_question": "Apa saja yang saat ini diukur dalam evaluasi LDP dan kapan pengukuran tersebut dilakukan?",
+              "sub_questions": []
+            },
+            {
+              "code": "M7",
+              "title": "M7. Sumber Data dan Instrumen",
+              "main_question": "Dari siapa dan dengan instrumen apa data evaluasi LDP saat ini diperoleh?",
+              "sub_questions": []
+            },
+            {
+              "code": "M8",
+              "title": "M8. Pengelolaan Data Evaluasi",
+              "main_question": "Bagaimana data hasil evaluasi LDP selama ini dikelola?",
+              "sub_questions": []
+            },
+            {
+              "code": "M9",
+              "title": "M9. Analisis dan Pelaporan",
+              "main_question": "Bagaimana data evaluasi dianalisis dan hasilnya disajikan kepada pihak yang membutuhkan?",
+              "sub_questions": []
+            },
+            {
+              "code": "M10",
+              "title": "M10. Pemanfaatan Hasil Evaluasi",
+              "main_question": "Bagaimana hasil evaluasi selama ini digunakan dan ditindaklanjuti?",
+              "sub_questions": []
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 3. KESENJANGAN DAN AKAR MASALAH SISTEM EVALUASI",
+          "modules": [
+            {
+              "code": "M11",
+              "title": "M11. Kecukupan dan Kesenjangan Sistem Evaluasi",
+              "main_question": "Jika dibandingkan antara sistem evaluasi saat ini dengan informasi yang sebenarnya dibutuhkan organisasi, bagian apa yang sudah memadai dan bagian apa yang masih belum memadai?",
+              "sub_questions": []
+            },
+            {
+              "code": "M12",
+              "title": "M12. Gap Transfer dan Perubahan Perilaku",
+              "main_question": "Sejauh mana evaluasi saat ini mampu menunjukkan bahwa hasil LDP benar-benar diterapkan dan menjadi perilaku kerja?",
+              "sub_questions": []
+            },
+            {
+              "code": "M15",
+              "title": "M15. Hambatan dan Akar Penyebab",
+              "main_question": "Apa hambatan utama dalam evaluasi LDP dan apa penyebab mendasar dari hambatan tersebut?",
+              "sub_questions": []
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 4. KEBUTUHAN KOMPONEN MODEL EVALUASI TRAINING LDP",
+          "modules": [
+            {
+              "code": "M17",
+              "title": "M17. Kebutuhan Model Secara Keseluruhan",
+              "main_question": "Informasi apa yang harus dapat dihasilkan oleh model evaluasi LDP agar keberhasilan program dapat dinilai secara utuh?",
+              "sub_questions": []
+            },
+            {
+              "code": "M18",
+              "title": "M18. Kebutuhan Kejelasan dan Keselarasan",
+              "main_question": "Hal-hal apa yang perlu dipastikan kejelasan dan kesesuaiannya agar keberhasilan LDP dapat dievaluasi secara tepat?",
+              "sub_questions": []
+            },
+            {
+              "code": "M19",
+              "title": "M19. Acquisition - Pencapaian Kompetensi",
+              "main_question": "Informasi dan bukti apa yang diperlukan untuk memastikan peserta benar-benar memperoleh kompetensi yang ditargetkan?",
+              "sub_questions": []
+            },
+            {
+              "code": "M20",
+              "title": "M20. Acquisition - Standar Keberhasilan",
+              "main_question": "Bagaimana keberhasilan pencapaian pembelajaran atau kompetensi peserta seharusnya ditentukan?",
+              "sub_questions": []
+            },
+            {
+              "code": "M21",
+              "title": "M21. Transfer dan Perubahan Perilaku",
+              "main_question": "Bagaimana evaluasi seharusnya mengetahui bahwa kompetensi hasil LDP telah diterapkan secara konsisten dalam pekerjaan?",
+              "sub_questions": []
+            },
+            {
+              "code": "M30",
+              "title": "M30. Format Penyajian Informasi",
+              "main_question": "Dalam bentuk apa hasil evaluasi seharusnya disajikan agar mudah dipahami dan digunakan?",
+              "sub_questions": []
+            },
+            {
+              "code": "M32",
+              "title": "M32. Tindak Lanjut dan Feedback Loop",
+              "main_question": "Bagaimana hasil evaluasi seharusnya ditindaklanjuti dan digunakan kembali untuk memperbaiki peserta, program, serta kebijakan pengembangan SDM?",
+              "sub_questions": []
+            }
+          ]
+        }
+      ],
+      "closing_question": "Apakah ada hal penting terkait pelaksanaan, evaluasi, atau pengembangan LDP yang menurut Bapak/Ibu belum kami tanyakan tetapi perlu kami ketahui?"
+    },
+    "manajemen_sdm": {
+      "id": "manajemen_sdm",
+      "filename": "4. Kuesioner Manajemen SDM Talent Management.docx",
+      "title": "4. Kuesioner Manajemen SDM Talent Management",
+      "role_name": "Manajemen SDM / Talent Management / L&D",
+      "domains": [
+        {
+          "title": "DOMAIN 1. KONTEKS STRATEGIS DAN KEBUTUHAN LDP",
+          "modules": [
+            {
+              "code": "M2",
+              "title": "M2. Tujuan dan Hasil yang Diharapkan",
+              "main_question": "Apa tujuan utama LDP dan perubahan apa yang seharusnya dihasilkan pada peserta, unit kerja, dan organisasi?",
+              "sub_questions": [
+                "Kompetensi kepemimpinan apa yang dibutuhkan organisasi?",
+                "Bagaimana LDP seharusnya mendukung pipeline kepemimpinan dan pengembangan talenta?",
+                "Apa outcome jangka pendek, menengah, dan panjang?",
+                "Indikator apa yang menunjukkan keberhasilan dari perspektif SDM?"
+              ]
+            },
+            {
+              "code": "M3",
+              "title": "M3. Keselarasan Strategis dan Tantangan Kepemimpinan",
+              "main_question": "Bagaimana kesesuaian LDP saat ini dengan kebutuhan kepemimpinan dan tantangan strategis Perum BULOG?",
+              "sub_questions": [
+                "Bagaimana keterkaitannya dengan competency framework, talent management, succession planning, dan kebutuhan jabatan?",
+                "Bagaimana perubahan strategi organisasi diterjemahkan ke kebutuhan pengembangan pemimpin?",
+                "Apakah terdapat mekanisme formal untuk memastikan alignment tersebut?"
+              ]
+            },
+            {
+              "code": "M4",
+              "title": "M4. Kesenjangan Kebutuhan LDP",
+              "main_question": "Jika dibandingkan dengan kondisi yang dibutuhkan organisasi, kesenjangan apa yang masih terdapat dalam LDP dan mana yang paling prioritas?",
+              "sub_questions": [
+                "Apakah terdapat competency gap, leadership pipeline gap, behavioural gap, atau information gap?",
+                "Apa dampaknya terhadap talent readiness dan kebutuhan organisasi?",
+                "Kesenjangan mana yang paling mendesak untuk ditangani?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 2. SISTEM EVALUASI LDP YANG BERJALAN",
+          "modules": [
+            {
+              "code": "M5",
+              "title": "M5. Praktik dan Tujuan Evaluasi Saat Ini",
+              "main_question": "Bagaimana evaluasi LDP dilaksanakan selama ini dan untuk tujuan apa evaluasi tersebut dilakukan?",
+              "sub_questions": [
+                "Bagaimana peran fungsi SDM dalam evaluasi?",
+                "Apa tujuan formal dan penggunaan aktual hasil evaluasi?",
+                "Apakah evaluasi terhubung dengan proses talent management?"
+              ]
+            },
+            {
+              "code": "M6",
+              "title": "M6. Aspek, Indikator, dan Waktu Pengukuran",
+              "main_question": "Apa saja yang saat ini diukur dalam evaluasi LDP dan kapan pengukuran tersebut dilakukan?",
+              "sub_questions": [
+                "Apakah mencakup kompetensi, perilaku, kinerja, readiness, dan outcome?",
+                "Apakah terdapat baseline dan follow-up?",
+                "Apakah timing evaluasi selaras dengan talent review atau performance cycle?"
+              ]
+            },
+            {
+              "code": "M8",
+              "title": "M8. Pengelolaan Data Evaluasi",
+              "main_question": "Bagaimana data hasil evaluasi LDP selama ini dikelola?",
+              "sub_questions": [
+                "Di mana data disimpan dan siapa yang mengelola?",
+                "Apakah terintegrasi dengan data kompetensi, kinerja, talent, atau sistem SDM lainnya?",
+                "Bagaimana kualitas, keamanan, kerahasiaan, dan keterlacakan data dijaga?"
+              ]
+            },
+            {
+              "code": "M9",
+              "title": "M9. Analisis dan Pelaporan",
+              "main_question": "Bagaimana data evaluasi dianalisis dan hasilnya disajikan kepada pihak yang membutuhkan?",
+              "sub_questions": [
+                "Apakah analisis dilakukan pada level individu, cohort, program, unit, atau organisasi?",
+                "Apakah terdapat trend, benchmark, linkage dengan performance/talent data?",
+                "Bagaimana kebutuhan laporan SDM berbeda dari peserta, atasan, dan Direksi?"
+              ]
+            },
+            {
+              "code": "M10",
+              "title": "M10. Pemanfaatan Hasil Evaluasi",
+              "main_question": "Bagaimana hasil evaluasi selama ini digunakan dan ditindaklanjuti?",
+              "sub_questions": [
+                "Apakah digunakan untuk development plan, talent review, succession planning, assignment, atau program lanjutan?",
+                "Siapa yang menggunakan hasil tersebut?",
+                "Apakah ada mekanisme monitoring tindak lanjut?",
+                "Dapatkah diberikan contoh keputusan yang didukung hasil evaluasi?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 3. KESENJANGAN DAN AKAR MASALAH SISTEM EVALUASI",
+          "modules": [
+            {
+              "code": "M11",
+              "title": "M11. Kecukupan dan Kesenjangan Sistem Evaluasi",
+              "main_question": "Jika dibandingkan antara sistem evaluasi saat ini dengan informasi yang sebenarnya dibutuhkan organisasi, bagian apa yang sudah memadai dan bagian apa yang masih belum memadai?",
+              "sub_questions": [
+                "Informasi apa yang sudah dapat digunakan oleh SDM?",
+                "Informasi apa yang masih belum tersedia untuk talent management?",
+                "Di mana gap indikator, data, timing, integrasi, analisis, atau penggunaan hasil?"
+              ]
+            },
+            {
+              "code": "M12",
+              "title": "M12. Gap Transfer dan Perubahan Perilaku",
+              "main_question": "Sejauh mana evaluasi saat ini mampu menunjukkan bahwa hasil LDP benar-benar diterapkan dan menjadi perilaku kerja?",
+              "sub_questions": [
+                "Apakah perubahan perilaku diukur setelah peserta kembali bekerja?",
+                "Apakah menggunakan atasan, rekan, bawahan, atau multi-source evidence?",
+                "Apakah transfer climate ikut dipertimbangkan?",
+                "Apakah hasilnya digunakan dalam pengembangan talenta?"
+              ]
+            },
+            {
+              "code": "M13",
+              "title": "M13. Gap Hasil, Dampak, dan Kontribusi",
+              "main_question": "Sejauh mana evaluasi saat ini dapat memberikan bukti mengenai kontribusi LDP terhadap perubahan kinerja individu, unit, dan organisasi?",
+              "sub_questions": [
+                "Apakah hasil LDP dikaitkan dengan performance, readiness, succession, engagement, produktivitas, atau outcome lain?",
+                "Bagaimana faktor selain LDP dipertimbangkan?",
+                "Bukti apa yang dianggap cukup kuat untuk menyatakan kontribusi LDP?"
+              ]
+            },
+            {
+              "code": "M14",
+              "title": "M14. Gap Akuntabilitas",
+              "main_question": "Sejauh mana bukti evaluasi saat ini memadai untuk mempertanggungjawabkan manfaat dan investasi LDP?",
+              "sub_questions": [
+                "Apakah manfaat finansial dan nonfinansial dapat ditunjukkan?",
+                "Apakah biaya program tersedia dan dapat ditelusuri?",
+                "Apakah informasi yang tersedia cukup untuk menjelaskan value program kepada manajemen?"
+              ]
+            },
+            {
+              "code": "M15",
+              "title": "M15. Hambatan dan Akar Penyebab",
+              "main_question": "Apa hambatan utama dalam evaluasi LDP dan apa penyebab mendasar dari hambatan tersebut?",
+              "sub_questions": [
+                "Apakah terkait kebijakan, governance, kompetensi evaluator, data, sistem, integrasi, koordinasi, waktu, atau budaya?",
+                "Mengapa hambatan tersebut terjadi?",
+                "Apa akar penyebab yang perlu ditangani?"
+              ]
+            },
+            {
+              "code": "M16",
+              "title": "M16. Konsekuensi dan Prioritas Perbaikan",
+              "main_question": "Apa konsekuensi dari kelemahan sistem evaluasi tersebut dan aspek apa yang paling prioritas diperbaiki?",
+              "sub_questions": [
+                "Apa dampaknya terhadap talent decision, succession planning, development planning, atau alokasi investasi?",
+                "Apa risiko bila evidence tidak memadai?",
+                "Perbaikan mana yang paling prioritas?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 4. KEBUTUHAN KOMPONEN MODEL EVALUASI TRAINING",
+          "modules": [
+            {
+              "code": "M17",
+              "title": "M17. Kebutuhan Model Secara Keseluruhan",
+              "main_question": "Informasi apa yang harus dapat dihasilkan oleh model evaluasi LDP agar keberhasilan program dapat dinilai secara utuh?",
+              "sub_questions": [
+                "Informasi apa yang dibutuhkan pada level individu, talent pool, unit, dan organisasi?",
+                "Apa yang belum dapat dijawab sistem saat ini?",
+                "Apa karakteristik model yang dapat digunakan dalam proses SDM?"
+              ]
+            },
+            {
+              "code": "M18",
+              "title": "M18. Kebutuhan Kejelasan dan Keselarasan",
+              "main_question": "Hal-hal apa yang perlu dipastikan kejelasan dan kesesuaiannya agar keberhasilan LDP dapat dievaluasi secara tepat?",
+              "sub_questions": [
+                "Bagaimana kebutuhan organisasi, competency framework, tujuan LDP, target kompetensi, dan outcome seharusnya diselaraskan?",
+                "Siapa yang menetapkan dan memverifikasi alignment?",
+                "Bukti apa yang diperlukan untuk menunjukkan alignment?"
+              ]
+            },
+            {
+              "code": "M23",
+              "title": "M23. Hasil dan Kontribusi terhadap Kinerja",
+              "main_question": "Pada tingkat individu, tim, unit, dan organisasi, hasil apa yang perlu diukur, serta bagaimana kontribusi LDP terhadap hasil tersebut seharusnya dinilai?",
+              "sub_questions": [
+                "Apakah perlu mengukur performance, leadership effectiveness, readiness, talent mobility, succession, engagement, innovation, atau KPI?",
+                "Outcome mana yang realistis dikaitkan dengan LDP?",
+                "Bagaimana kontribusi dibedakan dari faktor lain?"
+              ]
+            },
+            {
+              "code": "M25",
+              "title": "M25. Governance Evaluasi",
+              "main_question": "Siapa yang seharusnya bertanggung jawab atas pengumpulan, verifikasi, analisis, pelaporan, dan tindak lanjut hasil evaluasi?",
+              "sub_questions": [
+                "Siapa menetapkan indikator dan standar?",
+                "Siapa menjadi data owner dan verifier?",
+                "Siapa melakukan analisis dan menyetujui laporan?",
+                "Bagaimana konflik kepentingan, akses data, dan kredibilitas evidence dijaga?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 5. KEBUTUHAN PEMANGKU KEPENTINGAN DAN PENGAMBILAN KEPUTUSAN",
+          "modules": [
+            {
+              "code": "M27",
+              "title": "M27. Stakeholder dan Kebutuhan Informasi",
+              "main_question": "Siapa saja yang membutuhkan hasil evaluasi LDP, dan informasi apa yang dibutuhkan oleh masing-masing pihak?",
+              "sub_questions": [
+                "Apa kebutuhan peserta, atasan, pengelola LDP, SDM/Talent Management, pimpinan unit, dan Direksi?",
+                "Informasi apa yang dibutuhkan khusus untuk talent review dan succession planning?",
+                "Untuk keputusan apa masing-masing informasi digunakan?"
+              ]
+            },
+            {
+              "code": "M31",
+              "title": "M31. Penggunaan dan Kekuatan Bukti untuk Keputusan",
+              "main_question": "Untuk keputusan apa hasil evaluasi akan digunakan, dan seberapa kuat bukti yang diperlukan sebelum keputusan dibuat?",
+              "sub_questions": [
+                "Apakah hasil digunakan untuk development, assignment, talent classification, succession, atau promosi?",
+                "Apakah satu hasil assessment cukup?",
+                "Data apa yang perlu ditriangulasi: performance, potential, competency, behaviour, experience, atau evidence lain?",
+                "Keputusan high-stakes apa yang tidak boleh hanya berdasarkan hasil LDP?"
+              ]
+            },
+            {
+              "code": "M24",
+              "title": "M24. Accountability - Bukti, Nilai, dan Pertanggungjawaban Program",
+              "main_question": "",
+              "sub_questions": []
+            }
+          ]
+        }
+      ],
+      "closing_question": "Apakah ada hal penting terkait evaluasi LDP, pengembangan talenta, succession planning, atau penggunaan hasil evaluasi yang menurut Bapak/Ibu belum kami tanyakan tetapi perlu kami ketahui?"
+    },
+    "pimpinan_unit": {
+      "id": "pimpinan_unit",
+      "filename": "5. Kuesioner Pimpinan Unit Kerja.docx",
+      "title": "5. Kuesioner Pimpinan Unit Kerja",
+      "role_name": "Pimpinan Unit Kerja / User",
+      "domains": [
+        {
+          "title": "DOMAIN 1. KONTEKS STRATEGIS DAN KEBUTUHAN LDP",
+          "modules": [
+            {
+              "code": "M1",
+              "title": "M1. Kondisi Aktual LDP",
+              "main_question": "Bagaimana Bapak/Ibu melihat pelaksanaan Leadership Development Program (LDP) selama ini, termasuk hal yang sudah berjalan baik dan yang masih perlu diperbaiki?",
+              "sub_questions": []
+            },
+            {
+              "code": "M2",
+              "title": "M2. Tujuan dan Hasil yang Diharapkan",
+              "main_question": "Apa tujuan utama LDP dan perubahan apa yang seharusnya dihasilkan pada peserta, unit kerja, dan organisasi?",
+              "sub_questions": []
+            },
+            {
+              "code": "M3",
+              "title": "M3. Keselarasan Strategis dan Tantangan Kepemimpinan",
+              "main_question": "Bagaimana kesesuaian LDP saat ini dengan kebutuhan kepemimpinan dan tantangan strategis Perum BULOG?",
+              "sub_questions": []
+            },
+            {
+              "code": "M4",
+              "title": "M4. Kesenjangan Kebutuhan LDP",
+              "main_question": "Jika dibandingkan dengan kondisi yang dibutuhkan organisasi, kesenjangan apa yang masih terdapat dalam LDP dan mana yang paling prioritas?",
+              "sub_questions": []
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 2. SISTEM EVALUASI LDP YANG BERJALAN",
+          "modules": [
+            {
+              "code": "M10",
+              "title": "M10. Pemanfaatan Hasil Evaluasi",
+              "main_question": "Bagaimana hasil evaluasi selama ini digunakan dan ditindaklanjuti?",
+              "sub_questions": []
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 3. KESENJANGAN DAN AKAR MASALAH SISTEM EVALUASI",
+          "modules": [
+            {
+              "code": "M11",
+              "title": "M11. Kecukupan dan Kesenjangan Sistem Evaluasi",
+              "main_question": "Jika dibandingkan antara sistem evaluasi saat ini dengan informasi yang sebenarnya dibutuhkan, bagian apa yang sudah memadai dan bagian apa yang masih belum memadai?",
+              "sub_questions": []
+            },
+            {
+              "code": "M12",
+              "title": "M12. Gap Transfer dan Perubahan Perilaku",
+              "main_question": "Sejauh mana evaluasi saat ini mampu menunjukkan bahwa hasil LDP benar-benar diterapkan dan menjadi perilaku kerja?",
+              "sub_questions": []
+            },
+            {
+              "code": "M13",
+              "title": "M13. Gap Hasil, Dampak, dan Kontribusi",
+              "main_question": "Sejauh mana evaluasi saat ini dapat memberikan bukti mengenai kontribusi LDP terhadap perubahan kinerja individu, unit, dan organisasi?",
+              "sub_questions": []
+            },
+            {
+              "code": "M15",
+              "title": "M15. Hambatan dan Akar Penyebab",
+              "main_question": "Apa hambatan utama dalam evaluasi LDP dan apa penyebab mendasar dari hambatan tersebut?",
+              "sub_questions": []
+            },
+            {
+              "code": "M16",
+              "title": "M16. Konsekuensi dan Prioritas Perbaikan",
+              "main_question": "Apa konsekuensi dari kelemahan sistem evaluasi tersebut dan aspek apa yang paling prioritas diperbaiki?",
+              "sub_questions": []
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 4. KEBUTUHAN KOMPONEN MODEL EVALUASI",
+          "modules": [
+            {
+              "code": "M18",
+              "title": "M18. Kebutuhan Kejelasan dan Keselarasan",
+              "main_question": "Hal-hal apa yang perlu dipastikan kejelasan dan kesesuaiannya agar keberhasilan LDP dapat dievaluasi secara tepat?",
+              "sub_questions": []
+            },
+            {
+              "code": "M21",
+              "title": "M21. Transfer dan Perubahan Perilaku",
+              "main_question": "Bagaimana evaluasi seharusnya mengetahui bahwa kompetensi hasil LDP telah diterapkan secara konsisten dalam pekerjaan?",
+              "sub_questions": []
+            },
+            {
+              "code": "M22",
+              "title": "M22. Habit & Behaviour - Lingkungan Transfer",
+              "main_question": "Faktor apa yang mendukung atau menghambat penerapan dan keberlanjutan perilaku hasil LDP?",
+              "sub_questions": []
+            },
+            {
+              "code": "M23",
+              "title": "M23. Hasil dan Kontribusi terhadap Kinerja",
+              "main_question": "Pada tingkat individu, tim, unit, dan organisasi, hasil apa yang perlu diukur, serta bagaimana kontribusi LDP terhadap hasil tersebut seharusnya dinilai?",
+              "sub_questions": []
+            }
+          ]
+        },
+        {
+          "title": "DOMAIN 5. KEBUTUHAN PEMANGKU KEPENTINGAN DAN PENGAMBILAN KEPUTUSAN",
+          "modules": [
+            {
+              "code": "M27",
+              "title": "M27. Stakeholder dan Kebutuhan Informasi",
+              "main_question": "Siapa saja yang membutuhkan hasil evaluasi LDP, dan informasi apa yang dibutuhkan oleh masing-masing pihak?",
+              "sub_questions": []
+            },
+            {
+              "code": "M29",
+              "title": "M29. Waktu Ketersediaan Informasi",
+              "main_question": "Kapan masing-masing informasi evaluasi harus tersedia agar dapat digunakan secara efektif?",
+              "sub_questions": []
+            },
+            {
+              "code": "M31",
+              "title": "M31. Penggunaan dan Kekuatan Bukti untuk Keputusan",
+              "main_question": "Untuk keputusan apa hasil evaluasi akan digunakan, dan seberapa kuat bukti yang diperlukan sebelum keputusan dibuat?",
+              "sub_questions": []
+            },
+            {
+              "code": "M32",
+              "title": "M32. Tindak Lanjut dan Feedback Loop",
+              "main_question": "Bagaimana hasil evaluasi seharusnya ditindaklanjuti dan digunakan kembali untuk memperbaiki peserta, program, serta kebijakan pengembangan SDM?",
+              "sub_questions": []
+            },
+            {
+              "code": "M24",
+              "title": "M24. Accountability - Bukti, Nilai, dan Pertanggungjawaban Program",
+              "main_question": "",
+              "sub_questions": []
+            }
+          ]
+        }
+      ],
+      "closing_question": "Apakah ada hal penting terkait pelaksanaan, evaluasi, perubahan perilaku, kontribusi terhadap kinerja unit, atau tindak lanjut LDP yang menurut Bapak/Ibu belum kami tanyakan tetapi perlu kami ketahui?"
+    }
+  }
+}
