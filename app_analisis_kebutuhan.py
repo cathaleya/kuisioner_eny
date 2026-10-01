@@ -340,8 +340,8 @@ def process_direct_submission():
 with st.sidebar:
     st.image("https://img.icons8.com/illustrations/100/student-male.png", width=75)
     st.markdown("### 🎓 Penelitian Disertasi PEP UNJ")
-    st.markdown(f"**{meta.get('peneliti', 'Eny Cahyaningsih')}**")
-    st.caption("Analisis Kebutuhan Pembelajaran")
+    st.markdown(f"**{meta.get('peneliti', 'Ruslina Irianty')}**")
+    st.caption("S3 Penelitian dan Evaluasi Pendidikan — UNJ")
     st.markdown("---")
     
     if st.session_state.page != "intro":
@@ -399,7 +399,7 @@ if st.session_state.page == "intro":
             st.write("")
             for line in intro_text.split("\n"):
                 if line.strip():
-                    if line.startswith("Eny Cahyaningsih") or line.startswith("Penelitian"):
+                    if line.startswith("Ruslina") or line.startswith("Program Doktor") or line.startswith("Universitas Negeri Jakarta"):
                         st.markdown(f"**{line.strip()}**")
                     else:
                         st.markdown(line.strip())
@@ -410,17 +410,17 @@ if st.session_state.page == "intro":
         st.markdown("""
         <div class="card">
             <h3 style="margin-top:0; color:#065F46; font-size:1.25rem;">🎯 Pilih Jenis Kuesioner</h3>
-            <p style="font-size:0.9rem; color:#4B5563;">Silakan pilih instrumen kuesioner yang sesuai dengan peran Anda:</p>
+            <p style="font-size:0.9rem; color:#4B5563;">Silakan pilih kuesioner sesuai peran Anda sebagai responden penelitian:</p>
         </div>
         """, unsafe_allow_html=True)
         
         q_options = {
-            "dosen": "1. Kuesioner untuk Dosen",
-            "mahasiswa": "2. Kuesioner untuk Mahasiswa",
+            "dosen": "👩‍🏫 Saya adalah Dosen",
+            "mahasiswa": "🎓 Saya adalah Mahasiswa",
         }
         
         selected_key = st.radio(
-            "Jenis Responden:",
+            "Saya adalah:",
             options=list(q_options.keys()),
             format_func=lambda x: q_options[x],
             index=list(q_options.keys()).index(st.session_state.selected_q_id) if st.session_state.selected_q_id in q_options else 0
@@ -429,13 +429,14 @@ if st.session_state.page == "intro":
         st.session_state.selected_q_id = selected_key
         q_info = questionnaires_dict.get(selected_key, {})
         
-        st.info(f"**Peran:** {q_info.get('role_name', '')}\n\n**Jumlah Bagian:** {len(get_flattened_modules(selected_key))} Bagian Pertanyaan")
+        st.info(f"**Instrumen:** {q_info.get('title', '')}\n\n**Jumlah Bagian Pertanyaan:** {len(get_flattened_modules(selected_key))} Bagian")
         
-        if st.button("📄 Lanjut ke Persetujuan & Identitas", type="primary", use_container_width=True):
+        if st.button("📄 Lanjut ke Persetujuan & Mulai Isi", type="primary", use_container_width=True):
             st.session_state.page = "consent"
             st.session_state.current_mod_idx = 0
             st.session_state.consent_given = False
             st.rerun()
+
 
 # ==========================================
 # PAGE 1.5: FORM CONSENT (PERNYATAAN PERSETUJUAN)
