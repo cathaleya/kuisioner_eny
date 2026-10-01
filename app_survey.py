@@ -278,39 +278,76 @@ def submit_to_google_sheets(payload):
     # Step 1: ALWAYS save to local Excel & CSV first
     local_ok, local_msg = save_to_local_excel(payload)
     
-    # Step 2: Attempt Google Apps Script transmission
+    # Step 2: Attempt Google Apps Script transmission (with retry & dual-method GET/POST)
     try:
         url = None
-        if "connections" in st.secrets and "gsheets" in st.secrets["connections"]:
-            url = st.secrets["connections"]["gsheets"]["spreadsheet"]
-        elif "gsheets_url" in st.secrets:
-            url = st.secrets["gsheets_url"]
-        elif "spreadsheet" in st.secrets:
-            url = st.secrets["spreadsheet"]
-        if not url:
-            url = st.secrets.get("apps_script_url", None)
+        try:
+            if "connections" in st.secrets and "gsheets" in st.secrets["connections"]:
+                url = st.secrets["connections"]["gsheets"]["spreadsheet"]
+            elif "gsheets_url" in st.secrets:
+                url = st.secrets["gsheets_url"]
+            elif "spreadsheet" in st.secrets:
+                url = st.secrets["spreadsheet"]
+            if not url:
+                url = st.secrets.get("apps_script_url", None)
+            if not url and "apps_script" in st.secrets:
+                url = st.secrets["apps_script"].get("web_app_url", None)
+        except Exception:
+            pass
 
         if url and "script.google.com" in url:
-            headers = {"Content-Type": "application/json"}
-            response = requests.post(url, json=payload, headers=headers, timeout=15, allow_redirects=True)
-            
-            if response.status_code == 200:
-                try:
-                    res = response.json()
-                    if res.get("result") == "success":
-                        return True, "Berhasil mengirimkan data ke Google Sheets & merekam ke Excel lokal."
-                    else:
-                        return True, f"Tersimpan di Excel lokal. Respon Google Sheets: {res.get('message', 'Sukses')}"
-                except Exception:
-                    return True, "Data berhasil dikirim dan direkam di Excel lokal."
-            elif response.status_code == 401:
-                return False, "HTTP 401 Unauthorized (Google Apps Script butuh akses 'Anyone')"
-            else:
-                return False, f"HTTP Error {response.status_code}: {response.text}"
+            import json
+            json_str = json.dumps(payload)
+            last_error = ""
+
+            # Method 1: GET request with payload param (Instant & avoids POST redirect/timeout bugs in Apps Script)
+            try:
+                response = requests.get(
+                    url,
+                    params={"payload": json_str},
+                    timeout=15,
+                    allow_redirects=True
+                )
+                if response.status_code == 200:
+                    try:
+                        res = response.json()
+                        if res.get("result") == "success":
+                            return True, "Data berhasil terkirim ke Google Sheets!"
+                    except Exception:
+                        return True, "Data berhasil terkirim ke Google Sheets!"
+            except Exception as ex:
+                last_error = f"GET: {str(ex)}"
+
+            # Method 2: Fallback POST request with text/plain
+            try:
+                response = requests.post(
+                    url,
+                    data=json_str,
+                    headers={"Content-Type": "text/plain"},
+                    timeout=15,
+                    allow_redirects=True
+                )
+                if response.status_code == 200:
+                    try:
+                        res = response.json()
+                        if res.get("result") == "success":
+                            return True, "Data berhasil terkirim ke Google Sheets!"
+                        else:
+                            return True, f"Data terkirim ke Google Sheets ({res.get('message', 'OK')})"
+                    except Exception:
+                        return True, "Data berhasil terkirim ke Google Sheets!"
+                elif response.status_code == 401:
+                    return False, "Google Apps Script: Akses ditolak. Pastikan deployment diset 'Anyone'."
+                else:
+                    last_error = f"HTTP {response.status_code}"
+            except Exception as ex:
+                last_error = f"POST: {str(ex)}"
+
+            return False, f"Gagal kirim ke Google Sheets ({last_error}). Hubungi peneliti untuk konfirmasi data."
         else:
             return True, "Data berhasil direkam ke Excel lokal komputer."
     except Exception as e:
-        return True, f"Jawaban Anda SUDAH AMAN tersimpan di Excel lokal. (Koneksi online: {str(e)})"
+        return False, f"Koneksi gagal: {str(e)}"
 
 # Global helper to perform direct submission from ANY page
 def process_direct_submission():
@@ -387,23 +424,58 @@ if st.session_state.page == "intro":
     
     col_main, col_select = st.columns([1.65, 1])
     
+    PENGANTAR_DOSEN = """Assalamu'alaikum warahmatullahi wabarakatuh.
+
+**Yth. Bapak/Ibu Dosen yang terhormat,**
+
+Terima kasih atas kesediaan Bapak/Ibu berpartisipasi dalam penelitian ini.
+
+Kuesioner ini merupakan bagian dari penelitian disertasi yang bertujuan untuk melakukan analisis kebutuhan pembelajaran di perguruan tinggi. Bapak/Ibu diharapkan memberikan jawaban berdasarkan pengalaman, pengamatan, dan kondisi yang sebenarnya.
+
+Tidak terdapat jawaban benar atau salah. Seluruh informasi yang diberikan akan digunakan semata-mata untuk kepentingan akademik dan penelitian, serta diolah secara bertanggung jawab sesuai prinsip kerahasiaan data penelitian.
+
+Partisipasi dan masukan Bapak/Ibu sangat berarti bagi pengembangan kualitas pembelajaran.
+
+Atas waktu dan kontribusi Bapak/Ibu, saya mengucapkan terima kasih.
+
+Wassalamu'alaikum warahmatullahi wabarakatuh.
+
+**Ruslina Irianty**
+
+**Program Doktor S3 Penelitian dan Evaluasi Pendidikan**
+
+**Universitas Negeri Jakarta**"""
+
+    PENGANTAR_MAHASISWA = """Assalamu'alaikum warahmatullahi wabarakatuh.
+
+**Yth. Mahasiswa yang terhormat,**
+
+Terima kasih atas kesediaan Anda berpartisipasi dalam penelitian ini.
+
+Kuesioner ini merupakan bagian dari penelitian disertasi yang bertujuan untuk melakukan analisis kebutuhan pembelajaran. Anda diharapkan memberikan jawaban berdasarkan pengalaman dan kondisi yang sebenarnya.
+
+Tidak terdapat jawaban benar atau salah. Seluruh informasi yang diberikan akan dijaga kerahasiaannya dan digunakan semata-mata untuk kepentingan penelitian akademis.
+
+Partisipasi dan masukan Anda sangat berarti bagi pengembangan kualitas pembelajaran.
+
+Atas waktu dan kontribusinya, saya mengucapkan terima kasih.
+
+Wassalamu'alaikum warahmatullahi wabarakatuh.
+
+**Ruslina Irianty**
+
+**Program Doktor S3 Penelitian dan Evaluasi Pendidikan**
+
+**Universitas Negeri Jakarta**"""
+
     with col_main:
         active_q_id = st.session_state.selected_q_id
-        active_q_data = questionnaires_dict.get(active_q_id, {})
-        intro_key = active_q_data.get("intro_key", "intro_dosen")
-        intro_text = data.get(intro_key, "")
-        
+        intro_text = PENGANTAR_DOSEN if active_q_id == "dosen" else PENGANTAR_MAHASISWA
+
         with st.container(border=True):
             st.subheader("📋 Pengantar Kuesioner Penelitian")
             st.write("")
-            for line in intro_text.split("\n"):
-                if line.strip():
-                    if line.startswith("Ruslina") or line.startswith("Program Doktor") or line.startswith("Universitas Negeri Jakarta"):
-                        st.markdown(f"**{line.strip()}**")
-                    else:
-                        st.markdown(line.strip())
-                else:
-                    st.write("")
+            st.markdown(intro_text)
             
     with col_select:
         st.markdown("""
