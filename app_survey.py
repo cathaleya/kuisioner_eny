@@ -339,7 +339,7 @@ def process_direct_submission():
 with st.sidebar:
     st.image("https://img.icons8.com/illustrations/100/student-male.png", width=75)
     st.markdown("### 🎓 Penelitian Disertasi PEP UNJ")
-    st.markdown(f"**{meta.get('peneliti', 'Ruslina Irianty')}**")
+    st.markdown("**Ruslina Irianty**")
     st.caption("S3 Penelitian dan Evaluasi Pendidikan — UNJ")
     st.markdown("---")
     
@@ -372,7 +372,7 @@ with st.sidebar:
             st.rerun()
 
     st.markdown("---")
-    st.caption(f"📌 {meta.get('institusi', 'Universitas Negeri Jakarta')}")
+    st.caption("📌 S3 Penelitian dan Evaluasi Pendidikan — Universitas Negeri Jakarta")
 
 # ==========================================
 # PAGE 1: PENGANTAR & PILIHAN KUESIONER
@@ -381,7 +381,7 @@ if st.session_state.page == "intro":
     st.markdown("""
     <div class="header-box">
         <h1>📋 Kuesioner Analisis Kebutuhan Pembelajaran</h1>
-        <p>Penelitian Disertasi | Program Studi Penelitian dan Evaluasi Pendidikan — Universitas Negeri Jakarta</p>
+        <p>Penelitian Disertasi Ruslina Irianty | S3 Penelitian dan Evaluasi Pendidikan — Universitas Negeri Jakarta</p>
     </div>
     """, unsafe_allow_html=True)
     
