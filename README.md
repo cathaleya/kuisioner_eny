@@ -1,31 +1,26 @@
-# Aplikasi Web Kuesioner Evaluasi LDP (Need Assessment) - UNJ
+# Aplikasi Web Kuesioner Analisis Kebutuhan Pembelajaran - UNJ
 
-Aplikasi web terpadu **Streamlit** untuk pengisian 5 instrumen kuesioner kualitatif penelitian disertasi pengembangan **Model Evaluasi Leadership Development Program (LDP)** oleh Eny Cahyaningsih (Penelitian dan Evaluasi Pendidikan, Universitas Negeri Jakarta).
+Aplikasi web **Streamlit** untuk pengisian kuesioner penelitian disertasi **Analisis Kebutuhan Pembelajaran** oleh **Ruslina Irianty** (Program Doktor S3 Penelitian dan Evaluasi Pendidikan, Universitas Negeri Jakarta).
 
 ---
 
 ## 🎯 Fitur Utama:
-1. **Unified Application**: 5 instrumen kuesioner disajikan dalam 1 aplikasi web tanpa perlu memecah menjadi aplikasi terpisah.
-2. **Pengantar Penelitian**: Menampilkan sambutan resmi, tujuan penelitian, dan jaminan kerahasiaan data sesuai dokumen `Pengantar Kuesioner Penelitian.docx`.
-3. **Pilihan Kuesioner Interaktif**:
-   - 1. Kuesioner Peserta LDP
-   - 2. Kuesioner Atasan / Mentor
-   - 3. Kuesioner Pengelola LDP / Fasilitator
-   - 4. Kuesioner Manajemen SDM / Talent Management
-   - 5. Kuesioner Pimpinan Unit Kerja
-4. **Navigasi Modul & Indikator**: Menampilkan Pertanyaan Utama dan Pertanyaan Mendalam secara sistematis dengan *progress bar*.
-5. **Auto-Sync Google Sheets**: Hasil pengisian tersimpan otomatis ke Google Sheets target via Google Apps Script:
-   `https://docs.google.com/spreadsheets/d/1171QQzfhf--vDczUZm-Ty71L38g6RjGHZoAoU_EsvLQ/edit?usp=sharing`
-6. **Animasi & Ucapan Terima Kasih**: Efek `st.balloons()` dan banner ucapan terima kasih pada halaman perayaan akhir.
+1. **2 Jenis Kuesioner**: Kuesioner Dosen dan Kuesioner Mahasiswa dalam 1 aplikasi.
+2. **Informed Consent**: Form persetujuan wajib diisi sebelum melanjutkan.
+3. **Pengantar Penelitian**: Menampilkan sambutan resmi dan jaminan kerahasiaan data.
+4. **Biodata Terpisah**: Form identitas berbeda untuk Dosen dan Mahasiswa.
+5. **Navigasi Bagian**: Pertanyaan utama dan panduan per bagian dengan progress bar.
+6. **Auto-Sync Google Sheets**: Hasil pengisian tersimpan otomatis via Google Apps Script.
+7. **Simpan Excel Lokal**: Data tersimpan di folder `responses/` secara otomatis.
 
 ---
 
 ## 📁 Struktur File:
 - `app_survey.py`: Kode utama aplikasi Streamlit.
-- `questions.json`: Bank pertanyaan lengkap hasil konversi 5 dokumen kuesioner & pengantar penelitian.
-- `Google_Apps_Script.gs`: Kode Apps Script untuk dipasang di Google Sheets target.
-- `requirements.txt`: Dependensi Python (`streamlit`, `pandas`, `requests`).
-- `.streamlit/secrets.toml`: Konfigurasi URL Google Apps Script Web App.
+- `questions_analisis_kebutuhan.json`: Bank pertanyaan kuesioner Dosen & Mahasiswa.
+- `Google_Apps_Script.gs`: Kode Apps Script untuk dipasang di Google Sheets.
+- `requirements.txt`: Dependensi Python.
+- `.streamlit/secrets.toml`: Konfigurasi URL Google Apps Script (jangan di-upload ke GitHub).
 
 ---
 
@@ -38,9 +33,9 @@ streamlit run app_survey.py
 ```
 
 ### 2. Deploy ke Streamlit Cloud:
-1. Push/unggah folder ini ke repository GitHub.
+1. Upload 3 file ke GitHub: `app_survey.py`, `questions_analisis_kebutuhan.json`, `requirements.txt`
 2. Buka [share.streamlit.io](https://share.streamlit.io) dan hubungkan dengan repository.
-3. Di dasbor Streamlit Cloud, buka **App Settings > Secrets**, lalu salin dan tempel (copy-paste) konfigurasi berikut:
+3. Di dasbor Streamlit Cloud, buka **App Settings > Secrets**, lalu salin konfigurasi berikut:
 
 ```toml
 [connections.gsheets]
