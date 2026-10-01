@@ -295,6 +295,9 @@ def submit_to_google_sheets(payload):
         except Exception:
             pass
 
+        if not url:
+            url = "https://script.google.com/macros/s/AKfycbzL7WX5mHUIbHmQGUgmN1Yl8aKNdjNwpDxosndjTE5HkOqWQu2oxw5V1A5oLwJ6YYPa/exec"
+
         if url and "script.google.com" in url:
             import json
             json_str = json.dumps(payload)
