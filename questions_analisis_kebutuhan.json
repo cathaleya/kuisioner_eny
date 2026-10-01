@@ -1,0 +1,261 @@
+{
+  "meta": {
+    "judul": "Kuesioner Analisis Kebutuhan Pembelajaran",
+    "peneliti": "Eny Cahyaningsih",
+    "institusi": "Penelitian dan Evaluasi Pendidikan — Universitas Negeri Jakarta",
+    "tahun": "2026"
+  },
+  "intro_dosen": "Assalamu'alaikum warahmatullahi wabarakatuh.\n\nYth. Bapak/Ibu Dosen yang terhormat,\n\nTerima kasih atas kesediaan Bapak/Ibu berpartisipasi dalam penelitian ini.\n\nKuesioner ini merupakan bagian dari penelitian disertasi yang bertujuan untuk melakukan analisis kebutuhan pembelajaran di perguruan tinggi. Bapak/Ibu diharapkan memberikan jawaban berdasarkan pengalaman, pengamatan, dan kondisi yang sebenarnya.\n\nTidak terdapat jawaban benar atau salah. Seluruh informasi yang diberikan akan digunakan semata-mata untuk kepentingan akademik dan penelitian, serta diolah secara bertanggung jawab sesuai prinsip kerahasiaan data penelitian.\n\nPartisipasi dan masukan Bapak/Ibu sangat berarti bagi pengembangan kualitas pembelajaran.\n\nAtas waktu dan kontribusi Bapak/Ibu, saya mengucapkan terima kasih.\n\nWassalamu'alaikum warahmatullahi wabarakatuh.\n\nEny Cahyaningsih\nPenelitian dan Evaluasi Pendidikan\nUniversitas Negeri Jakarta",
+  "intro_mahasiswa": "Assalamu'alaikum warahmatullahi wabarakatuh.\n\nYth. Mahasiswa yang terhormat,\n\nTerima kasih atas kesediaan Anda berpartisipasi dalam penelitian ini.\n\nKuesioner ini merupakan bagian dari penelitian disertasi yang bertujuan untuk melakukan analisis kebutuhan pembelajaran. Anda diharapkan memberikan jawaban berdasarkan pengalaman dan kondisi yang sebenarnya.\n\nTidak terdapat jawaban benar atau salah. Seluruh informasi yang diberikan akan dijaga kerahasiaannya dan digunakan semata-mata untuk kepentingan penelitian akademis.\n\nPartisipasi dan masukan Anda sangat berarti.\n\nAtas waktu dan kontribusinya, saya mengucapkan terima kasih.\n\nWassalamu'alaikum warahmatullahi wabarakatuh.\n\nEny Cahyaningsih\nPenelitian dan Evaluasi Pendidikan\nUniversitas Negeri Jakarta",
+  "consent_text": "Dengan mengisi kuesioner ini, saya menyatakan bahwa:\n\n1. Saya telah membaca dan memahami penjelasan mengenai tujuan penelitian ini.\n2. Saya berpartisipasi secara sukarela dan dapat mengundurkan diri kapan saja.\n3. Saya memberikan izin kepada peneliti untuk menggunakan data yang saya berikan untuk kepentingan penelitian akademis.\n4. Saya memahami bahwa identitas saya akan dijaga kerahasiaannya.\n5. Saya memahami bahwa tidak ada risiko yang berarti dari partisipasi saya dalam penelitian ini.",
+  "google_sheets_url": "",
+  "apps_script_url": "",
+  "questionnaires": {
+    "dosen": {
+      "id": "dosen",
+      "filename": "Kuesioner_Analisis_Kebutuhan_DOSEN.docx",
+      "title": "Kuesioner Analisis Kebutuhan — Dosen",
+      "role_name": "Dosen / Tenaga Pengajar",
+      "intro_key": "intro_dosen",
+      "domains": [
+        {
+          "title": "A. PROFIL DAN LATAR BELAKANG MENGAJAR",
+          "modules": [
+            {
+              "code": "D_A1",
+              "title": "A1. Pengalaman Mengajar",
+              "main_question": "Bagaimana pengalaman Bapak/Ibu dalam mengajar mata kuliah yang diampu selama ini?",
+              "sub_questions": [
+                "Sudah berapa lama Bapak/Ibu mengajar mata kuliah ini?",
+                "Apa tantangan utama yang dihadapi dalam proses pembelajaran?",
+                "Bagaimana gambaran umum kemampuan mahasiswa yang Bapak/Ibu ajar?"
+              ]
+            },
+            {
+              "code": "D_A2",
+              "title": "A2. Metode dan Pendekatan Pembelajaran",
+              "main_question": "Metode dan pendekatan pembelajaran apa yang selama ini Bapak/Ibu gunakan dalam proses perkuliahan?",
+              "sub_questions": [
+                "Apakah metode yang digunakan sudah sesuai dengan capaian pembelajaran yang diharapkan?",
+                "Bagaimana respons mahasiswa terhadap metode yang digunakan?",
+                "Adakah kendala dalam menerapkan metode tersebut?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "B. ANALISIS KEBUTUHAN PEMBELAJARAN",
+          "modules": [
+            {
+              "code": "D_B1",
+              "title": "B1. Kondisi Pembelajaran Saat Ini",
+              "main_question": "Bagaimana Bapak/Ibu menggambarkan kondisi pembelajaran saat ini, termasuk hal yang sudah berjalan baik dan yang masih perlu diperbaiki?",
+              "sub_questions": [
+                "Aspek apa yang sudah berjalan dengan baik dalam proses pembelajaran?",
+                "Aspek apa yang masih perlu diperbaiki atau ditingkatkan?",
+                "Apakah sarana dan prasarana pembelajaran sudah memadai?",
+                "Bagaimana keterlibatan mahasiswa dalam proses pembelajaran?"
+              ]
+            },
+            {
+              "code": "D_B2",
+              "title": "B2. Kesenjangan Kompetensi Mahasiswa",
+              "main_question": "Kesenjangan kompetensi apa yang Bapak/Ibu temukan pada mahasiswa berdasarkan pengalaman mengajar?",
+              "sub_questions": [
+                "Kompetensi apa yang sudah dikuasai mahasiswa dengan baik?",
+                "Kompetensi apa yang masih lemah atau perlu dikembangkan?",
+                "Apakah ada perbedaan kompetensi yang signifikan antar mahasiswa?",
+                "Apa penyebab kesenjangan tersebut menurut pengamatan Bapak/Ibu?"
+              ]
+            },
+            {
+              "code": "D_B3",
+              "title": "B3. Kebutuhan Materi dan Kurikulum",
+              "main_question": "Materi atau konten pembelajaran apa yang menurut Bapak/Ibu perlu ditambahkan, diperbarui, atau dihilangkan dari kurikulum saat ini?",
+              "sub_questions": [
+                "Apakah materi yang ada sudah relevan dengan kebutuhan mahasiswa dan perkembangan ilmu?",
+                "Materi baru apa yang perlu diintegrasikan ke dalam perkuliahan?",
+                "Bagaimana urutan penyajian materi yang paling efektif menurut Bapak/Ibu?"
+              ]
+            },
+            {
+              "code": "D_B4",
+              "title": "B4. Kebutuhan Pengembangan Dosen",
+              "main_question": "Kebutuhan pengembangan profesional apa yang Bapak/Ibu rasakan untuk meningkatkan kualitas pembelajaran?",
+              "sub_questions": [
+                "Pelatihan atau workshop apa yang Bapak/Ibu butuhkan?",
+                "Apakah Bapak/Ibu memerlukan dukungan dalam pemanfaatan teknologi pembelajaran?",
+                "Bagaimana dukungan institusi terhadap pengembangan profesional dosen?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "C. EVALUASI DAN PENILAIAN",
+          "modules": [
+            {
+              "code": "D_C1",
+              "title": "C1. Sistem Penilaian",
+              "main_question": "Bagaimana sistem penilaian yang Bapak/Ibu terapkan dalam mata kuliah yang diampu?",
+              "sub_questions": [
+                "Instrumen penilaian apa yang digunakan?",
+                "Apakah sistem penilaian yang ada sudah mencerminkan capaian pembelajaran secara komprehensif?",
+                "Bagaimana umpan balik diberikan kepada mahasiswa?"
+              ]
+            },
+            {
+              "code": "D_C2",
+              "title": "C2. Hambatan dalam Evaluasi",
+              "main_question": "Apa hambatan yang Bapak/Ibu hadapi dalam melaksanakan evaluasi pembelajaran?",
+              "sub_questions": [
+                "Apakah ada kendala waktu, sumber daya, atau teknis dalam evaluasi?",
+                "Bagaimana Bapak/Ibu menangani mahasiswa yang belum mencapai standar kelulusan?",
+                "Saran apa yang Bapak/Ibu miliki untuk memperbaiki sistem evaluasi?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "D. HARAPAN DAN REKOMENDASI",
+          "modules": [
+            {
+              "code": "D_D1",
+              "title": "D1. Harapan terhadap Sistem Pembelajaran",
+              "main_question": "Apa harapan Bapak/Ibu terhadap sistem pembelajaran dan kurikulum ke depan?",
+              "sub_questions": [
+                "Perubahan apa yang paling dibutuhkan dalam jangka pendek?",
+                "Bagaimana visi Bapak/Ibu tentang pembelajaran yang ideal?",
+                "Dukungan apa yang diharapkan dari institusi untuk mewujudkan harapan tersebut?"
+              ]
+            }
+          ]
+        }
+      ],
+      "closing_question": "Apakah ada hal penting terkait kebutuhan pembelajaran, pengembangan kurikulum, atau peningkatan kualitas pendidikan yang belum kami tanyakan tetapi perlu diketahui oleh peneliti?"
+    },
+    "mahasiswa": {
+      "id": "mahasiswa",
+      "filename": "Kuesioner_Analisis_Kebutuhan_MAHASISWA.docx",
+      "title": "Kuesioner Analisis Kebutuhan — Mahasiswa",
+      "role_name": "Mahasiswa",
+      "intro_key": "intro_mahasiswa",
+      "domains": [
+        {
+          "title": "A. PROFIL DAN LATAR BELAKANG BELAJAR",
+          "modules": [
+            {
+              "code": "M_A1",
+              "title": "A1. Pengalaman Belajar",
+              "main_question": "Bagaimana pengalaman belajar Anda selama mengikuti perkuliahan di program studi ini?",
+              "sub_questions": [
+                "Mata kuliah apa yang paling Anda sukai dan mengapa?",
+                "Mata kuliah apa yang paling menantang bagi Anda?",
+                "Bagaimana cara belajar yang paling efektif menurut Anda?"
+              ]
+            },
+            {
+              "code": "M_A2",
+              "title": "A2. Motivasi dan Minat Belajar",
+              "main_question": "Apa yang menjadi motivasi utama Anda dalam mengikuti perkuliahan?",
+              "sub_questions": [
+                "Faktor apa yang meningkatkan semangat belajar Anda?",
+                "Faktor apa yang mengurangi motivasi belajar Anda?",
+                "Bagaimana Anda mengatasi kesulitan dalam belajar?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "B. ANALISIS KEBUTUHAN PEMBELAJARAN",
+          "modules": [
+            {
+              "code": "M_B1",
+              "title": "B1. Kondisi Pembelajaran Saat Ini",
+              "main_question": "Bagaimana Anda menggambarkan kondisi pembelajaran yang Anda alami saat ini?",
+              "sub_questions": [
+                "Aspek apa yang sudah baik dalam proses perkuliahan?",
+                "Aspek apa yang menurut Anda masih perlu diperbaiki?",
+                "Bagaimana kesesuaian metode mengajar dosen dengan gaya belajar Anda?",
+                "Apakah fasilitas pembelajaran sudah mendukung proses belajar Anda?"
+              ]
+            },
+            {
+              "code": "M_B2",
+              "title": "B2. Kesenjangan Kompetensi yang Dirasakan",
+              "main_question": "Kompetensi apa yang Anda rasa masih kurang dan perlu ditingkatkan melalui perkuliahan?",
+              "sub_questions": [
+                "Pengetahuan apa yang Anda butuhkan tetapi belum didapatkan dari perkuliahan?",
+                "Keterampilan apa yang ingin Anda kembangkan lebih lanjut?",
+                "Apakah ada mata kuliah yang menurut Anda perlu ditambahkan atau diperkuat?",
+                "Bagaimana Anda menilai kesiapan diri untuk memasuki dunia kerja/profesi?"
+              ]
+            },
+            {
+              "code": "M_B3",
+              "title": "B3. Kebutuhan Materi dan Metode Pembelajaran",
+              "main_question": "Materi dan metode pembelajaran seperti apa yang menurut Anda paling dibutuhkan dan efektif?",
+              "sub_questions": [
+                "Topik atau materi apa yang ingin Anda pelajari lebih dalam?",
+                "Metode pembelajaran apa yang menurut Anda paling efektif (kuliah, diskusi, praktikum, studi kasus, proyek, dll)?",
+                "Apakah Anda membutuhkan lebih banyak praktik atau pengalaman lapangan?",
+                "Bagaimana pemanfaatan teknologi dalam pembelajaran di perkuliahan saat ini?"
+              ]
+            },
+            {
+              "code": "M_B4",
+              "title": "B4. Dukungan Akademik yang Dibutuhkan",
+              "main_question": "Dukungan akademik apa yang Anda butuhkan untuk dapat belajar secara optimal?",
+              "sub_questions": [
+                "Apakah Anda mendapatkan bimbingan akademik yang cukup dari dosen?",
+                "Apakah Anda membutuhkan layanan tutoring, mentoring, atau konseling akademik?",
+                "Bagaimana aksesibilitas sumber belajar (buku, jurnal, e-learning, laboratorium)?",
+                "Dukungan apa yang paling Anda harapkan dari institusi?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "C. EVALUASI DAN PENILAIAN",
+          "modules": [
+            {
+              "code": "M_C1",
+              "title": "C1. Pengalaman dengan Sistem Penilaian",
+              "main_question": "Bagaimana pengalaman Anda dengan sistem penilaian yang ada di program studi ini?",
+              "sub_questions": [
+                "Apakah sistem penilaian yang ada sudah adil dan transparan?",
+                "Jenis evaluasi apa yang menurut Anda paling mengukur kemampuan Anda sesungguhnya?",
+                "Apakah Anda mendapatkan umpan balik yang cukup dari hasil penilaian?"
+              ]
+            },
+            {
+              "code": "M_C2",
+              "title": "C2. Hambatan dalam Belajar dan Penilaian",
+              "main_question": "Apa hambatan utama yang Anda hadapi dalam proses belajar dan penilaian?",
+              "sub_questions": [
+                "Apakah ada hambatan teknis, akademik, sosial, atau ekonomi yang mempengaruhi belajar Anda?",
+                "Bagaimana Anda mengatasi hambatan tersebut?",
+                "Saran apa yang ingin Anda sampaikan untuk memperbaiki sistem penilaian?"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "D. HARAPAN DAN REKOMENDASI",
+          "modules": [
+            {
+              "code": "M_D1",
+              "title": "D1. Harapan terhadap Sistem Pembelajaran",
+              "main_question": "Apa harapan Anda terhadap sistem pembelajaran dan pengalaman perkuliahan ke depan?",
+              "sub_questions": [
+                "Perubahan apa yang paling Anda harapkan terjadi dalam waktu dekat?",
+                "Bagaimana gambaran ideal perkuliahan yang Anda inginkan?",
+                "Saran apa yang ingin Anda berikan kepada institusi atau dosen untuk meningkatkan kualitas pembelajaran?"
+              ]
+            }
+          ]
+        }
+      ],
+      "closing_question": "Apakah ada hal penting tentang pengalaman belajar, kebutuhan pembelajaran, atau saran perbaikan yang belum sempat kami tanyakan dan ingin Anda sampaikan kepada peneliti?"
+    }
+  }
+}
